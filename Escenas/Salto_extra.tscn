@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Recursos/Sprites/Coleccionables/Salto_extra.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Coleccionables/Salto_extra.gd" type="Script" id=2]
+
+[node name="Salto_extra" type="Sprite" groups=[
+"Coleccionable",
+]]
+scale = Vector2( 2.6, 2.6 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -1, -7, 1, -7, 7, -1, 7, 1, 1, 7, -1, 7, -7, 1, -7, -1, -1, -7 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

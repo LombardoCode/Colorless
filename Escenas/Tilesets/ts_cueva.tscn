@@ -1,0 +1,1059 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Recursos/Sprites/tileset.png" type="Texture" id=1]
+[ext_resource path="res://Escenas/Enemigos/scn_lava.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 8 )
+
+[node name="Node" type="Node"]
+
+[node name="Origen" type="Sprite" parent="."]
+position = Vector2( 104, -20 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ts_cueva_01" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ts_cueva_01"]
+position = Vector2( 104, -20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_01/StaticBody2D"]
+position = Vector2( -96, 28 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_02" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_02"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_02/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_03" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_03"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_03/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_04" type="Sprite" parent="."]
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_04"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_04/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_05" type="Sprite" parent="."]
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_05"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_05/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_06" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_06"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_06/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_07" type="Sprite" parent="."]
+position = Vector2( 0, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 6
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_07"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_07/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_08" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 7
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_08"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_08/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_09" type="Sprite" parent="."]
+position = Vector2( 32, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_09"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_09/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_10" type="Sprite" parent="."]
+position = Vector2( 48, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 9
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_10"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_10/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_11" type="Sprite" parent="."]
+position = Vector2( 64, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 10
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_11"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_11/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_12" type="Sprite" parent="."]
+position = Vector2( 80, 16 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 11
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_12"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_12/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_13" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 12
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_13"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_13/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_14" type="Sprite" parent="."]
+position = Vector2( 16, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 13
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_14"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_14/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_15" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 14
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_15"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_15/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_16" type="Sprite" parent="."]
+position = Vector2( 48, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_16"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_16/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_17" type="Sprite" parent="."]
+position = Vector2( 64, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_17"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_17/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_18" type="Sprite" parent="."]
+position = Vector2( 80, 32 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 17
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_18"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_18/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_19" type="Sprite" parent="."]
+position = Vector2( 0, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 18
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_19"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_19/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_20" type="Sprite" parent="."]
+position = Vector2( 16, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 19
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_20"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_20/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_21" type="Sprite" parent="."]
+position = Vector2( 32, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_21"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_21/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_22" type="Sprite" parent="."]
+position = Vector2( 48, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 21
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_22"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_22/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_23" type="Sprite" parent="."]
+position = Vector2( 64, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 22
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_23"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_23/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_24" type="Sprite" parent="."]
+position = Vector2( 80, 48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 23
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_24"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_24/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_25" type="Sprite" parent="."]
+position = Vector2( 0, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 24
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_25"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_25/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_26" type="Sprite" parent="."]
+position = Vector2( 16, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 25
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ts_cueva_27" type="Sprite" parent="."]
+position = Vector2( 32, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 26
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ts_cueva_28" type="Sprite" parent="."]
+position = Vector2( 48, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 27
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_28"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_28/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_29" type="Sprite" parent="."]
+position = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 28
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_29"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_29/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_30" type="Sprite" parent="."]
+position = Vector2( 80, 64 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 29
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_30"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_30/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_31" type="Sprite" parent="."]
+position = Vector2( 0, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 30
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_31"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_31/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_32" type="Sprite" parent="."]
+position = Vector2( 16, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 31
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_32"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_32/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_33" type="Sprite" parent="."]
+position = Vector2( 32, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 32
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_33"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_33/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_34" type="Sprite" parent="."]
+position = Vector2( 48, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 33
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_34"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_34/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_35" type="Sprite" parent="."]
+position = Vector2( 64, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 34
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_35"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_35/StaticBody2D2"]
+position = Vector2( -88, 3 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="ts_cueva_36" type="Sprite" parent="."]
+position = Vector2( 80, 80 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 35
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_36"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_36/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_37" type="Sprite" parent="."]
+position = Vector2( 0, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 36
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_37"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_37/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_38" type="Sprite" parent="."]
+position = Vector2( 16, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 37
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_38"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_38/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_39" type="Sprite" parent="."]
+position = Vector2( 32, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 38
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_39"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_39/StaticBody2D2"]
+position = Vector2( -88, 12 )
+shape = SubResource( 3 )
+
+[node name="ts_cueva_40" type="Sprite" parent="."]
+position = Vector2( 48, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 39
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_40"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_40/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_41" type="Sprite" parent="."]
+position = Vector2( 64, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 40
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_41"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_41/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_42" type="Sprite" parent="."]
+position = Vector2( 80, 96 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 41
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_42"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_42/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_43" type="Sprite" parent="."]
+position = Vector2( 0, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 42
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ts_cueva_44" type="Sprite" parent="."]
+position = Vector2( 16, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 43
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ts_cueva_45" type="Sprite" parent="."]
+position = Vector2( 32, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 44
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_45"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_45/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_46" type="Sprite" parent="."]
+position = Vector2( 48, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 45
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_46"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_46/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_47" type="Sprite" parent="."]
+position = Vector2( 64, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 46
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_47"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_47/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_48" type="Sprite" parent="."]
+position = Vector2( 80, 112 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 47
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_48"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_48/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_49" type="Sprite" parent="."]
+position = Vector2( 0, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 48
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_49"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_49/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_50" type="Sprite" parent="."]
+position = Vector2( 16, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 49
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_50"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_50/StaticBody2D2"]
+position = Vector2( -92, 8 )
+shape = SubResource( 4 )
+
+[node name="ts_cueva_51" type="Sprite" parent="."]
+position = Vector2( 32, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 50
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_51"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ts_cueva_51/StaticBody2D2"]
+position = Vector2( -84, 8 )
+shape = SubResource( 4 )
+
+[node name="ts_cueva_52" type="Sprite" parent="."]
+position = Vector2( 48, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 51
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_52"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ts_cueva_52/StaticBody2D2"]
+position = Vector2( -88, 4 )
+shape = SubResource( 3 )
+
+[node name="ts_cueva_53" type="Sprite" parent="."]
+position = Vector2( 64, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 52
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_53"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_53/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_54" type="Sprite" parent="."]
+position = Vector2( 80, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 53
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_54"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_54/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_55" type="Sprite" parent="."]
+position = Vector2( 0, 144 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 54
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_55"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_55/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_56" type="Sprite" parent="."]
+position = Vector2( 16, 144 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 55
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_56"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_56/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_57" type="Sprite" parent="."]
+position = Vector2( 32, 144 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 56
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_57"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_57/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_58" type="Sprite" parent="."]
+position = Vector2( 48, 144 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 57
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_58"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_58/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_59" type="Sprite" parent="."]
+position = Vector2( 64, 144 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 10
+hframes = 6
+frame = 58
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ts_cueva_59"]
+position = Vector2( 96, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ts_cueva_59/StaticBody2D2"]
+position = Vector2( -88, 8 )
+shape = SubResource( 1 )
+
+[node name="ts_cueva_60" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 150 )

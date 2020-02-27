@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Arrival.ogg-14faf729acf3a9e2407c17a54c9a99ee.oggstr"
+
+[deps]
+
+source_file="res://Recursos/Musica/Arrival/Arrival.ogg"
+dest_files=[ "res://.import/Arrival.ogg-14faf729acf3a9e2407c17a54c9a99ee.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

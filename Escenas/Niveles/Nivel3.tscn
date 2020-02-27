@@ -1,0 +1,107 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=1]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=4]
+[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=8]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=10]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=11]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=12]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=16]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=18]
+
+
+[node name="Node" type="Node" groups=[
+"arrival",
+]]
+script = ExtResource( 16 )
+nombre_nivel = "Nivel 03 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 480 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 14 )]
+limit_right = 1280
+
+[node name="TileMap_castle" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 34, 0, 131071, 34, 0, 196607, 34, 0, 262143, 34, 0, 327679, 34, 0, 393215, 34, 0, 458751, 34, 0, 524287, 34, 0, 589823, 34, 0, 655359, 34, 0, 720895, 34, 0, 786431, 34, 0, 851967, 34, 0, 917503, 34, 0, 983039, 34, 0, 1048575, 34, 0, 983040, 0, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 2, 0, 983060, 0, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 983070, 1, 0, 983071, 2, 0, 1048576, 7, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 8, 0, 1048580, 8, 0, 1048581, 8, 0, 1048582, 8, 0, 1048583, 8, 0, 1048584, 8, 0, 1048585, 8, 0, 1048586, 8, 0, 1048587, 9, 0, 1048596, 7, 0, 1048597, 8, 0, 1048598, 8, 0, 1048599, 8, 0, 1048600, 8, 0, 1048601, 8, 0, 1048602, 8, 0, 1048603, 8, 0, 1048604, 8, 0, 1048605, 8, 0, 1048606, 8, 0, 1048607, 9, 0, 1114112, 7, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 8, 0, 1114116, 8, 0, 1114117, 8, 0, 1114118, 8, 0, 1114119, 8, 0, 1114120, 8, 0, 1114121, 8, 0, 1114122, 8, 0, 1114123, 9, 0, 1114132, 7, 0, 1114133, 8, 0, 1114134, 8, 0, 1114135, 8, 0, 1114136, 8, 0, 1114137, 8, 0, 1114138, 8, 0, 1114139, 8, 0, 1114140, 8, 0, 1114141, 8, 0, 1114142, 8, 0, 1114143, 9, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.8 )
+z_index = -3
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 6 )]
+stream = ExtResource( 13 )
+
+[node name="Meta_portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1180, 560 )
+
+[node name="Meta" parent="Meta_portal" index="1"]
+escena_target = "res://Escenas/Niveles/Nivel4.tscn"
+
+[node name="Saltos_extra" type="Node" parent="."]
+
+[node name="Salto_extra" parent="Saltos_extra" instance=ExtResource( 5 )]
+position = Vector2( 640, 480 )
+
+[node name="Fondo_cielo_azul" parent="." instance=ExtResource( 17 )]
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 12 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 9 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 18 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 15 )]
+
+[editable path="Meta_portal"]

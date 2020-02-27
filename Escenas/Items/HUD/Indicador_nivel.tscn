@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Recursos/Fuentes/LexendDeca-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Recursos/Sprites/HUD/Background_nivel_id.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 1 )
+
+[node name="Indicador_nivel" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Texto_nivel" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 424.0
+margin_bottom = 65.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 0
+text = "Nivel 00 / 00"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

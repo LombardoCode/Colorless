@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Recursos/Fuentes/LexendDeca-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Recursos/Musica/Menu/menu.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/SeleccionarNivel/NivelBoton.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Interfaz.gd" type="Script" id=5]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=8]
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 2 )
+
+[node name="Interfaz" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.000244141
+custom_constants/separation = 77
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="Node2D" parent="VBoxContainer"]
+position = Vector2( 0, 200 )
+
+[node name="Btn_Nivel1" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 73.0
+margin_top = 2.0
+margin_right = 137.0
+margin_bottom = 66.0
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Niveles/Nivel1.tscn"
+
+[node name="Btn_Nivel2" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 248.756
+margin_top = -2.32138
+margin_right = 312.756
+margin_bottom = 61.6786
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Nivel3" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 389.965
+margin_top = -5.64273
+margin_right = 453.965
+margin_bottom = 58.3573
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Nivel4" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 531.294
+margin_top = -5.1543
+margin_right = 595.294
+margin_bottom = 58.8457
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Nivel5" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 678.896
+margin_top = -8.28537
+margin_right = 742.896
+margin_bottom = 55.7146
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Nivel6" type="TextureButton" parent="VBoxContainer/GridContainer"]
+margin_left = 803.452
+margin_top = -10.0592
+margin_right = 867.452
+margin_bottom = 53.9408
+texture_normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" parent="." instance=ExtResource( 8 )]
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 765.0
+margin_bottom = 92.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "COLORLESS - [PROTOTIPO] - v0.0.2
+Desarrollado por: Lombardo Moreno Rodríguez (al0-2863940)"
+__meta__ = {
+"_edit_use_anchors_": false
+}

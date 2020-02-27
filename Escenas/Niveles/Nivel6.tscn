@@ -1,0 +1,169 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=1]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=4]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=7]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=8]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=10]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Recursos/Sprites/Plataformas/Plataformas_madera/5x1_Plataforna_madera.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Items/Plataformas/Plataforma_V.gd" type="Script" id=15]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=17]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=19]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100.004, 20.0045 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 62.231, 28.594, 0, 0, 0, 0, 632.231, 28.594 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "movimiento"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.99, 0.0, 1.0 ]
+}
+
+[node name="Node" type="Node" groups=[
+"arrival",
+]]
+script = ExtResource( 17 )
+nombre_nivel = "Nivel 06 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 12 )]
+position = Vector2( 110, 470 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 2 )]
+limit_right = 1280
+
+[node name="TileMap_castle" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, 65535, 34, 0, 131071, 34, 0, 196607, 34, 0, 262143, 34, 0, 327679, 34, 0, 393215, 34, 0, 458751, 34, 0, 524287, 34, 0, 589823, 34, 0, 655359, 34, 0, 720895, 34, 0, 786431, 34, 0, 851967, 34, 0, 917503, 34, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 2, 0, 851994, 0, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 2, 0, 983039, 34, 0, 917504, 7, 0, 917505, 8, 0, 917506, 8, 0, 917507, 8, 0, 917508, 8, 0, 917509, 9, 0, 917530, 7, 0, 917531, 8, 0, 917532, 8, 0, 917533, 8, 0, 917534, 8, 0, 917535, 9, 0, 1048575, 34, 0, 983040, 7, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 9, 0, 983066, 7, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 9, 0, 1048576, 7, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 8, 0, 1048580, 8, 0, 1048581, 9, 0, 1048602, 7, 0, 1048603, 8, 0, 1048604, 8, 0, 1048605, 8, 0, 1048606, 8, 0, 1048607, 9, 0, 1114112, 7, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 8, 0, 1114116, 8, 0, 1114117, 9, 0, 1114138, 7, 0, 1114139, 8, 0, 1114140, 8, 0, 1114141, 8, 0, 1114142, 8, 0, 1114143, 9, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.8 )
+z_index = -3
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 13 )]
+stream = ExtResource( 9 )
+
+[node name="Meta_portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1160, 480 )
+
+[node name="Meta" parent="Meta_portal" index="1"]
+escena_target = "res://Escenas/Niveles/Nivel7.tscn"
+
+[node name="Plataformas" type="Node" parent="."]
+
+[node name="Plataforma" type="Node2D" parent="Plataformas"]
+position = Vector2( 297.769, 551.406 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Plataforma" type="KinematicBody2D" parent="Plataformas/Plataforma"]
+position = Vector2( 626.58, 28.594 )
+motion/sync_to_physics = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Plataformas/Plataforma/Plataforma"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/Plataforma/Plataforma"]
+shape = SubResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="Plataformas/Plataforma"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Plataformas/Plataforma/Path2D"]
+position = Vector2( 626.58, 28.594 )
+offset = 563.688
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Plataformas/Plataforma/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../Plataforma")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas/Plataforma"]
+root_node = NodePath("../Plataforma")
+autoplay = "movimiento"
+playback_process_mode = 0
+anims/movimiento = SubResource( 3 )
+
+[node name="Fondo_cielo_azul" parent="." instance=ExtResource( 18 )]
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 10 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 11 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 19 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 16 )]
+
+[editable path="Meta_portal"]

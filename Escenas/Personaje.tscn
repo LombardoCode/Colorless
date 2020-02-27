@@ -1,0 +1,197 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/Personaje.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/0/spr_lombardo_0_IDLE_1.png" type="Texture" id=2]
+[ext_resource path="res://Recursos/SFX/Personaje/Saltar.wav" type="AudioStream" id=3]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/0/spr_lombardo_0_IDLE_0.png" type="Texture" id=4]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/0/spr_lombardo_100_corriendo_0.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/0/spr_lombardo_100_corriendo_1.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Maquina de estados/MaquinaDelJugador.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/IDLE.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Moverse.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Correr.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Saltar.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Caerse.gd" type="Script" id=12]
+[ext_resource path="res://Recursos/SFX/Personaje/Caida.wav" type="AudioStream" id=13]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Salto_doble.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Morir.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Celebrando.gd" type="Script" id=16]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/33/spr_lombardo_33_IDLE_1.png" type="Texture" id=17]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/33/spr_lombardo_33_IDLE_0.png" type="Texture" id=18]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/33/spr_lombardo_33_corriendo_1.png" type="Texture" id=19]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/33/spr_lombardo_33_corriendo_0.png" type="Texture" id=20]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/66/spr_lombardo_66_corriendo_0.png" type="Texture" id=21]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/66/spr_lombardo_66_IDLE_0.png" type="Texture" id=22]
+[ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/66/spr_lombardo_66_corriendo_1.png" type="Texture" id=23]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/66/spr_lombardo_66_IDLE_1.png" type="Texture" id=24]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/100/spr_lombardo_100_IDLE_0.png" type="Texture" id=25]
+[ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/100/spr_lombardo_100_IDLE_1.png" type="Texture" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Caminando_100",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "IDLE_0",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "IDLE_33",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Caminando_33",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "IDLE_66",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Caminando_66",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Caminando_0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "IDLE_100",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Corriendo_33",
+"speed": 10.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Corriendo_100",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Corriendo_66",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Corriendo_0",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40.1422, 44.8065 )
+
+[node name="Personaje" type="KinematicBody2D"]
+z_index = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MaquinaDeEstados" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="IDLE" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 8 )
+
+[node name="Moverse" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 9 )
+
+[node name="Correr" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 10 )
+
+[node name="Saltar" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 11 )
+
+[node name="Caerse" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 12 )
+
+[node name="Salto_doble" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 14 )
+
+[node name="Morir" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 15 )
+
+[node name="Celebrando" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 16 )
+
+[node name="Puede_saltar" type="RichTextLabel" parent="."]
+margin_left = -80.0
+margin_top = -436.0
+margin_right = 93.0
+margin_bottom = -342.0
+rect_scale = Vector2( 4, 4 )
+text = "PS: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ray" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -80.0
+margin_top = -180.0
+margin_right = 93.0
+margin_bottom = -140.0
+rect_scale = Vector2( 4, 4 )
+text = "Ray: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Estado" type="RichTextLabel" parent="."]
+margin_left = -80.0
+margin_top = -140.0
+margin_right = 93.0
+margin_bottom = -100.0
+rect_scale = Vector2( 4, 4 )
+text = "Estado"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+animation = "Caminando_100"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.078 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -39, 0 )
+enabled = true
+cast_to = Vector2( 0, 58.696 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 39, 0 )
+enabled = true
+cast_to = Vector2( 0, 58.696 )
+
+[node name="SFX_Salto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -16.0
+
+[node name="SFX_Caida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -0.078 )
+shape = SubResource( 2 )

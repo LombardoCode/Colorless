@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Camaras/Camera_siguiendo.gd" type="Script" id=1]
+
+[node name="Camera_siguiendo" type="Camera2D"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 2300
+limit_bottom = 720
+smoothing_enabled = true
+smoothing_speed = 0.8
+offset_h = 1.0
+offset_v = 1.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 1 )

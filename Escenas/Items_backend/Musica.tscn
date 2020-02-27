@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Items/Musica/Musica_Tutorial.gd" type="Script" id=1]
+
+[node name="Musica" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource( 1 )
+ruta_cancion = "res://Recursos/Musica/Tutorial/740866_Good-Mood-Theme-8-bit.ogg"

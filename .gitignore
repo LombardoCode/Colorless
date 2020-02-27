@@ -1,0 +1,8 @@
+# Formatos específicos que genera godot y que hay que ignorar
+.import/
+export.cfg
+export_presets.cfg
+*.translation
+.mono/
+data_*/
+

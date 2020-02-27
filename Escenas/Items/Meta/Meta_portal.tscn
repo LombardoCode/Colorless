@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Materiales/Particulas/Portal_fondo.tres" type="Gradient" id=1]
+[ext_resource path="res://Escenas/Items/Meta/TransicionCanvas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Items/Meta/Meta.tscn" type="PackedScene" id=4]
+
+
+[sub_resource type="GradientTexture" id=1]
+gradient = ExtResource( 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.512658, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+angular_velocity = -99.31
+orbit_velocity = 2.0
+orbit_velocity_random = 1.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = -100.0
+scale = 10.0
+scale_curve = SubResource( 3 )
+color_ramp = SubResource( 1 )
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0.503845, 0, 0.507812, 1, 0.673828, 0, 0.75, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+orbit_velocity = 2.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = -100.0
+scale = 5.0
+scale_random = 0.57
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+hue_variation = 0.04
+hue_variation_random = 0.7
+
+[node name="Meta_portal" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 50
+lifetime = 1.2
+speed_scale = 0.6
+process_material = SubResource( 4 )
+
+[node name="Meta" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 0 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+amount = 50
+lifetime = 1.2
+speed_scale = 0.6
+process_material = SubResource( 9 )
+
+[node name="TransicionCanvas" parent="." instance=ExtResource( 3 )]

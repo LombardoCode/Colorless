@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=1]
+
+[node name="Coleccionables" type="Node"]
+
+[node name="Salto_extra" parent="." instance=ExtResource( 1 )]
