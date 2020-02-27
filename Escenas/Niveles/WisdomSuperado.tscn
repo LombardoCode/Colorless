@@ -1,0 +1,97 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=7]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Escenas/Items/Piel/Piel_recolectable.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=11]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=13]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_morado.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=17]
+
+[node name="Node" type="Node" groups=[
+"wisdom",
+]]
+script = ExtResource( 2 )
+nombre_nivel = "Nivel 10 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 4 )]
+position = Vector2( 110, 470 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 3 )]
+limit_right = 1280
+smoothing_speed = 2.0
+
+[node name="TileMap_castle" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 17 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -3
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 56, 0, -65536, 56, 0, -65535, 56, 0, -65534, 56, 0, -65533, 56, 0, -65532, 56, 0, -65531, 56, 0, -65530, 56, 0, -65529, 56, 0, -65528, 56, 0, -65527, 56, 0, -65526, 56, 0, -65525, 56, 0, -65524, 56, 0, -65523, 56, 0, -65522, 56, 0, -65521, 56, 0, -65520, 56, 0, -65519, 56, 0, -65518, 56, 0, -65517, 56, 0, -65516, 56, 0, -65515, 56, 0, -65514, 56, 0, -65513, 56, 0, -65512, 56, 0, -65511, 56, 0, -65510, 56, 0, -65509, 56, 0, -65508, 56, 0, -65507, 56, 0, -65506, 56, 0, -65505, 56, 0, -65504, 56, 0, 65535, 56, 0, 32, 56, 0, 131071, 56, 0, 65568, 56, 0, 196607, 56, 0, 131104, 56, 0, 262143, 56, 0, 196640, 56, 0, 327679, 56, 0, 262176, 56, 0, 393215, 56, 0, 327712, 56, 0, 458751, 56, 0, 393248, 56, 0, 524287, 56, 0, 458784, 56, 0, 589823, 56, 0, 524320, 56, 0, 655359, 56, 0, 589838, 42, 0, 589839, 42, 0, 589840, 42, 0, 589841, 42, 0, 589842, 42, 0, 589843, 42, 0, 589856, 56, 0, 720895, 56, 0, 655374, 42, 0, 655375, 42, 0, 655376, 42, 0, 655377, 42, 0, 655378, 42, 0, 655379, 42, 0, 655392, 56, 0, 786431, 56, 0, 720906, 42, 0, 720907, 42, 0, 720908, 42, 0, 720909, 42, 0, 720910, 42, 0, 720911, 42, 0, 720912, 42, 0, 720913, 42, 0, 720914, 42, 0, 720915, 42, 0, 720928, 56, 0, 851967, 56, 0, 786442, 42, 0, 786443, 42, 0, 786444, 42, 0, 786445, 42, 0, 786446, 42, 0, 786447, 42, 0, 786448, 42, 0, 786449, 42, 0, 786450, 42, 0, 786451, 42, 0, 786464, 56, 0, 917503, 56, 0, 851974, 42, 0, 851975, 42, 0, 851976, 42, 0, 851977, 42, 0, 851978, 42, 0, 851979, 42, 0, 851980, 42, 0, 851981, 42, 0, 851982, 42, 0, 851983, 42, 0, 851984, 42, 0, 851985, 42, 0, 851986, 42, 0, 851987, 42, 0, 852000, 56, 0, 983039, 56, 0, 917510, 42, 0, 917511, 42, 0, 917512, 42, 0, 917513, 42, 0, 917514, 42, 0, 917515, 42, 0, 917516, 42, 0, 917517, 42, 0, 917518, 42, 0, 917519, 42, 0, 917520, 42, 0, 917521, 42, 0, 917522, 42, 0, 917523, 42, 0, 917536, 56, 0, 1048575, 56, 0, 983040, 1, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, 2, 0, 983058, 2, 0, 983059, 2, 0, 983060, 2, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0, 983067, 2, 0, 983068, 2, 0, 983069, 2, 0, 983070, 2, 0, 983071, 3, 0, 983072, 56, 0, 1114111, 56, 0, 1048576, 1, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 2, 0, 1048606, 2, 0, 1048607, 3, 0, 1048608, 56, 0, 1179647, 56, 0, 1114112, 1, 0, 1114113, 2, 0, 1114114, 2, 0, 1114115, 2, 0, 1114116, 2, 0, 1114117, 2, 0, 1114118, 2, 0, 1114119, 2, 0, 1114120, 2, 0, 1114121, 2, 0, 1114122, 2, 0, 1114123, 2, 0, 1114124, 2, 0, 1114125, 2, 0, 1114126, 2, 0, 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 2, 0, 1114132, 2, 0, 1114133, 2, 0, 1114134, 2, 0, 1114135, 2, 0, 1114136, 2, 0, 1114137, 2, 0, 1114138, 2, 0, 1114139, 2, 0, 1114140, 2, 0, 1114141, 2, 0, 1114142, 2, 0, 1114143, 3, 0, 1114144, 56, 0 )
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 12 )]
+stream = ExtResource( 9 )
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 14 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 15 )]
+
+[node name="Fondo_cielo_azul" parent="." instance=ExtResource( 16 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 8 )]
+
+[node name="Piel_recolectable" parent="." instance=ExtResource( 10 )]
+position = Vector2( 680, 300 )
+scale = Vector2( 0.5, 0.5 )
