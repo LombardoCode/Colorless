@@ -1,0 +1,349 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=2]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=7]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_morado.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=10]
+[ext_resource path="res://Escenas/Items_frontend/Evitable/Picos_giratorios.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=12]
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=13]
+[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=16]
+[ext_resource path="res://Escenas/Items_frontend/Evitable/Pico_templo_1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Scripts/Items/Plataformas/Plataforma_V.gd" type="Script" id=19]
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=20]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Recursos/Sprites/Plataformas/Plataformas_madera/5x1_Plataforna_madera.png" type="Texture" id=22]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100.004, 20.0045 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -60, -80, 0, 0, 0, 0, 1820, -80 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "movimiento"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.99 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 40.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.6, 0, 5, 13.4, 23, 27.2, 40 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.37, 0.38, 0.0, 0.428571, 0.671302, 1.0, 0.38 ]
+}
+
+[node name="Node" type="Node" groups=[
+"madness",
+]]
+script = ExtResource( 1 )
+nombre_nivel = "Nivel 21 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 3 )]
+position = Vector2( 100, 340 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 4 )]
+limit_right = 3000
+smoothing_speed = 2.0
+
+[node name="TileMap_castle" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -196561, 22, 0, -196560, 23, 0, -196559, 24, 0, -131025, 28, 0, -131024, 29, 0, -131023, 30, 0, -1, 38, 0, -65536, 38, 0, -65535, 38, 0, -65534, 38, 0, -65533, 38, 0, -65532, 38, 0, -65531, 38, 0, -65530, 38, 0, -65529, 38, 0, -65528, 38, 0, -65527, 38, 0, -65526, 38, 0, -65525, 38, 0, -65524, 38, 0, -65523, 38, 0, -65522, 38, 0, -65521, 38, 0, -65520, 38, 0, -65519, 38, 0, -65518, 38, 0, -65517, 38, 0, -65516, 38, 0, -65515, 38, 0, -65514, 38, 0, -65513, 38, 0, -65512, 38, 0, -65511, 38, 0, -65510, 38, 0, -65509, 38, 0, -65508, 38, 0, -65507, 38, 0, -65506, 38, 0, -65505, 38, 0, -65504, 38, 0, -65489, 34, 0, -65488, 35, 0, -65487, 36, 0, 26, 57, 0, 29, 55, 0, 30, 56, 0, 31, 57, 0, 32, 35, 0, 33, 35, 0, 34, 35, 0, 35, 35, 0, 36, 35, 0, 37, 35, 0, 38, 35, 0, 39, 35, 0, 40, 35, 0, 41, 35, 0, 42, 35, 0, 43, 35, 0, 44, 35, 0, 45, 35, 0, 46, 35, 0, 47, 35, 0, 48, 35, 0, 49, 35, 0, 50, 35, 0, 51, 29, 0, 52, 29, 0, 53, 30, 0, 65562, 57, 0, 65587, 28, 0, 65588, 29, 0, 65589, 30, 0, 131098, 57, 0, 131123, 28, 0, 131124, 29, 0, 131125, 30, 0, 196634, 57, 0, 196637, 55, 0, 196638, 56, 0, 196639, 57, 0, 196659, 28, 0, 196660, 29, 0, 196661, 30, 0, 262170, 57, 0, 262173, 57, 0, 262174, 55, 0, 262175, 56, 0, 262176, 22, 0, 262177, 23, 0, 262178, 23, 0, 262179, 23, 0, 262180, 23, 0, 262181, 23, 0, 262182, 23, 0, 262183, 23, 0, 262184, 23, 0, 262185, 23, 0, 262186, 23, 0, 262187, 23, 0, 262188, 23, 0, 262189, 23, 0, 262190, 23, 0, 262191, 24, 0, 262195, 28, 0, 262196, 29, 0, 262197, 30, 0, 327706, 57, 0, 327709, 56, 0, 327710, 57, 0, 327711, 55, 0, 327712, 34, 0, 327713, 35, 0, 327714, 35, 0, 327715, 35, 0, 327716, 35, 0, 327717, 35, 0, 327718, 35, 0, 327719, 35, 0, 327720, 35, 0, 327721, 35, 0, 327722, 35, 0, 327723, 35, 0, 327724, 35, 0, 327725, 35, 0, 327726, 35, 0, 327727, 36, 0, 327731, 28, 0, 327732, 29, 0, 327733, 30, 0, 393242, 57, 0, 393245, 55, 0, 393246, 56, 0, 393247, 57, 0, 393267, 28, 0, 393268, 29, 0, 393269, 30, 0, 458778, 57, 0, 458781, 57, 0, 458782, 55, 0, 458783, 56, 0, 458803, 28, 0, 458804, 29, 0, 458805, 30, 0, 524314, 57, 0, 524317, 56, 0, 524318, 57, 0, 524319, 55, 0, 524339, 28, 0, 524340, 29, 0, 524341, 30, 0, 589853, 55, 0, 589854, 56, 0, 589855, 57, 0, 589860, 22, 0, 589861, 23, 0, 589862, 23, 0, 589863, 23, 0, 589864, 23, 0, 589865, 23, 0, 589866, 23, 0, 589867, 23, 0, 589868, 23, 0, 589869, 23, 0, 589870, 23, 0, 589871, 23, 0, 589872, 23, 0, 589873, 23, 0, 589874, 23, 0, 589875, 29, 0, 589876, 29, 0, 589877, 30, 0, 655389, 57, 0, 655390, 55, 0, 655391, 56, 0, 655396, 34, 0, 655397, 35, 0, 655398, 35, 0, 655399, 35, 0, 655400, 35, 0, 655401, 35, 0, 655402, 35, 0, 655403, 35, 0, 655404, 35, 0, 655405, 35, 0, 655406, 35, 0, 655407, 35, 0, 655408, 35, 0, 655409, 35, 0, 655410, 35, 0, 655411, 35, 0, 655412, 35, 0, 655413, 36, 0, 720925, 56, 0, 720926, 57, 0, 720927, 55, 0, 786489, 22, 0, 786490, 23, 0, 786491, 23, 0, 786492, 24, 0, 852025, 28, 0, 852026, 29, 0, 852027, 29, 0, 852028, 30, 0, 917504, 55, 0, 917505, 56, 0, 917506, 57, 0, 917507, 55, 0, 917508, 56, 0, 917533, 56, 0, 917534, 57, 0, 917535, 55, 0, 917540, 22, 0, 917541, 23, 0, 917542, 23, 0, 917543, 23, 0, 917544, 23, 0, 917545, 23, 0, 917546, 23, 0, 917547, 23, 0, 917548, 23, 0, 917549, 23, 0, 917550, 23, 0, 917551, 23, 0, 917552, 23, 0, 917553, 23, 0, 917554, 23, 0, 917555, 23, 0, 917556, 23, 0, 917557, 23, 0, 917558, 23, 0, 917559, 23, 0, 917560, 24, 0, 917561, 28, 0, 917562, 29, 0, 917563, 29, 0, 917564, 30, 0, 983040, 57, 0, 983041, 55, 0, 983042, 56, 0, 983043, 57, 0, 983044, 55, 0, 983069, 55, 0, 983070, 56, 0, 983071, 57, 0, 983076, 28, 0, 983077, 29, 0, 983078, 29, 0, 983079, 29, 0, 983080, 29, 0, 983081, 29, 0, 983082, 29, 0, 983083, 29, 0, 983084, 29, 0, 983085, 29, 0, 983086, 29, 0, 983087, 29, 0, 983088, 29, 0, 983089, 29, 0, 983090, 29, 0, 983091, 29, 0, 983092, 29, 0, 983093, 29, 0, 983094, 29, 0, 983095, 29, 0, 983096, 30, 0, 983097, 28, 0, 983098, 29, 0, 983099, 29, 0, 983100, 30, 0, 1048576, 56, 0, 1048577, 57, 0, 1048578, 55, 0, 1048579, 56, 0, 1048580, 57, 0, 1048605, 57, 0, 1048606, 55, 0, 1048607, 56, 0, 1048612, 28, 0, 1048613, 29, 0, 1048614, 29, 0, 1048615, 29, 0, 1048616, 29, 0, 1048617, 29, 0, 1048618, 29, 0, 1048619, 29, 0, 1048620, 29, 0, 1048621, 29, 0, 1048622, 29, 0, 1048623, 29, 0, 1048624, 29, 0, 1048625, 29, 0, 1048626, 29, 0, 1048627, 29, 0, 1048628, 29, 0, 1048629, 29, 0, 1048630, 29, 0, 1048631, 29, 0, 1048632, 30, 0, 1048633, 28, 0, 1048634, 29, 0, 1048635, 29, 0, 1048636, 30, 0, 1114112, 55, 0, 1114113, 56, 0, 1114114, 57, 0, 1114115, 55, 0, 1114116, 56, 0, 1114141, 56, 0, 1114142, 57, 0, 1114143, 55, 0, 1114144, 22, 0, 1114145, 23, 0, 1114146, 23, 0, 1114147, 23, 0, 1114148, 29, 0, 1114149, 29, 0, 1114150, 29, 0, 1114151, 29, 0, 1114152, 29, 0, 1114153, 29, 0, 1114154, 29, 0, 1114155, 29, 0, 1114156, 29, 0, 1114157, 29, 0, 1114158, 29, 0, 1114159, 29, 0, 1114160, 29, 0, 1114161, 29, 0, 1114162, 29, 0, 1114163, 29, 0, 1114164, 29, 0, 1114165, 29, 0, 1114166, 29, 0, 1114167, 29, 0, 1114168, 30, 0, 1114169, 28, 0, 1114170, 29, 0, 1114171, 29, 0, 1114172, 30, 0 )
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 20 )
+cell_size = Vector2( 16, 16 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="." groups=[
+"tilemap",
+]]
+scale = Vector2( 2.5, 2.5 )
+z_index = -3
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 56, 0, 131071, 56, 0, 196607, 56, 0, 262143, 56, 0, 327679, 56, 0, 393215, 56, 0, 458751, 56, 0, 524287, 56, 0, 589823, 56, 0, 655359, 56, 0, 720895, 56, 0, 786431, 56, 0, 851967, 56, 0, 917503, 56, 0, 983039, 56, 0, 1048575, 56, 0, 1114111, 56, 0, 1179647, 56, 0 )
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 18 )
+
+[node name="Meta_portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1320, 2060 )
+
+[node name="Meta" parent="Meta_portal" index="1"]
+escena_target = "res://Escenas/Niveles/WisdomSuperado.tscn"
+
+[node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 8 )]
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 10 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 9 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 21 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 15 )]
+
+[node name="Picos" type="Node" parent="."]
+
+[node name="Pico" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 340 )
+rotation = -1.5708
+
+[node name="Pico2" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 300 )
+rotation = -1.5708
+
+[node name="Pico3" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 260 )
+rotation = -1.5708
+
+[node name="Pico4" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 220 )
+rotation = -1.5708
+
+[node name="Pico5" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 180 )
+rotation = -1.5708
+
+[node name="Pico6" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1020, 180 )
+rotation = -1.5708
+
+[node name="Pico7" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1460, 540 )
+
+[node name="Pico29" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1300, 660 )
+
+[node name="Pico30" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1340, 660 )
+
+[node name="Pico31" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1380, 660 )
+
+[node name="Pico32" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1420, 660 )
+
+[node name="Pico33" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1180, 540 )
+
+[node name="Pico14" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1500, 540 )
+
+[node name="Pico15" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1540, 540 )
+
+[node name="Pico16" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1580, 540 )
+
+[node name="Pico17" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1620, 540 )
+
+[node name="Pico18" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1660, 540 )
+
+[node name="Pico19" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1700, 540 )
+
+[node name="Pico20" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1740, 540 )
+
+[node name="Pico21" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1780, 540 )
+
+[node name="Pico22" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1820, 540 )
+
+[node name="Pico23" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1860, 540 )
+
+[node name="Pico24" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1900, 540 )
+
+[node name="Pico25" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1940, 540 )
+
+[node name="Pico26" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1980, 540 )
+
+[node name="Pico27" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 2020, 540 )
+
+[node name="Pico28" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 2060, 540 )
+
+[node name="Pico11" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1220, 540 )
+
+[node name="Pico12" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1260, 540 )
+
+[node name="Pico8" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1180, 500 )
+rotation = 3.14159
+
+[node name="Pico9" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1220, 500 )
+rotation = 3.14159
+
+[node name="Pico10" parent="Picos" instance=ExtResource( 17 )]
+position = Vector2( 1260, 500 )
+rotation = 3.14159
+
+[node name="Saltos_extra" type="Node" parent="."]
+
+[node name="Salto_extra" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 480, 360 )
+
+[node name="Salto_extra4" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 760, 240 )
+
+[node name="Salto_extra5" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 1120, 380 )
+
+[node name="Salto_extra6" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 1120, 260 )
+
+[node name="Salto_extra7" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 1120, 140 )
+
+[node name="Salto_extra2" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 480, 240 )
+
+[node name="Salto_extra3" parent="Saltos_extra" instance=ExtResource( 14 )]
+position = Vector2( 760, 360 )
+
+[node name="Picos_giratorios" type="Node" parent="."]
+
+[node name="Picos_giratorios" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 580, 480 )
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios4" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 860, 480 )
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios5" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 860, 360 )
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios6" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 860, 240 )
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios2" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 580, 360 )
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios3" parent="Picos_giratorios" instance=ExtResource( 11 )]
+position = Vector2( 580, 240 )
+velocidad_giro = 10.0
+
+[node name="Plataformas_movibles" type="Node" parent="."]
+
+[node name="Plataforma" type="Node2D" parent="Plataformas_movibles"]
+position = Vector2( 340, 600 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Plataforma" type="KinematicBody2D" parent="Plataformas_movibles/Plataforma"]
+position = Vector2( 801.452, -80 )
+motion/sync_to_physics = true
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Plataformas_movibles/Plataforma/Plataforma"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_movibles/Plataforma/Plataforma"]
+shape = SubResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="Plataformas_movibles/Plataforma"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Plataformas_movibles/Plataforma/Path2D"]
+position = Vector2( 801.452, -80 )
+offset = 870.564
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Plataformas_movibles/Plataforma/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../Plataforma")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_movibles/Plataforma"]
+root_node = NodePath("../Plataforma")
+autoplay = "movimiento_h"
+playback_process_mode = 0
+anims/movimiento = SubResource( 3 )
+anims/movimiento_h = SubResource( 4 )
+
+[editable path="Meta_portal"]

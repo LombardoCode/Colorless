@@ -25,10 +25,41 @@ func update(delta):
 		# Le indicamos la gravedad que debe de seguir
 		owner.motion.y += owner.GRAVEDAD * delta
 		
-		if Input.is_action_pressed("tecla_w") and owner.doble_salto:
+		#print("mmm")
+		if owner.doble_salto and !owner.saltando_doble:
 			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
 			owner.doble_salto = false
-			emit_signal("terminado", "Saltar") # Hot-fix Bug
+			owner.saltando_doble = true
+		if Input.is_action_just_released("tecla_w") and owner.motion.y < -200:
+			owner.motion.y = -200
+		
+		
+		
+		#if Input.is_action_pressed("tecla_w"):
+		#	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+		
+		
+		
+		
+		
+		
+		#if Input.is_action_pressed("tecla_w") and owner.doble_salto:
+#		if Input.is_action_pressed("tecla_w") and owner.doble_salto and !owner.saltando_doble:
+#			owner.saltando_doble = true
+#			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
+#			owner.doble_salto = false
+#			emit_signal("terminado", "Saltar") # Hot-fix Bug
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		
 		# Si no estamos colisionando y el motion.y > 0 le mandamos la señal de caida
 		if owner.motion.y > 0:

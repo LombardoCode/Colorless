@@ -48,10 +48,21 @@ func update(delta):
 		
 		if Input.is_action_just_pressed("tecla_w") and owner.puede_saltar:
 			emit_signal("terminado", "Saltar")
-		if Input.is_action_just_pressed("tecla_w") and !owner.puede_saltar and owner.tiempo_antes_del_proximo_salto > 0:
-			emit_signal("terminado", "Saltar")
+			
 		if Input.is_action_just_pressed("tecla_w") and owner.doble_salto:
-			emit_signal("terminado", "Salto_doble")
+			#emit_signal("terminado", "Saltar")
+			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
+			owner.doble_salto = false
+			owner.saltando_doble = true
+		if Input.is_action_just_released("tecla_w") and owner.motion.y < -200:
+			owner.motion.y = -200
+			
+		#if Input.is_action_just_pressed("tecla_w") and !owner.puede_saltar and owner.tiempo_antes_del_proximo_salto > 0:
+			#emit_signal("terminado", "Saltar")
+		#if Input.is_action_just_pressed("tecla_w") and owner.doble_salto:
+		#if Input.is_action_pressed("tecla_w") and owner.doble_salto:
+			#emit_signal("terminado", "Salto_doble")
+		
 	pass
 	
 	# Si el jugador cae del mundo, que muera y que se reinicie el nivel

@@ -74,7 +74,7 @@ stream = ExtResource( 11 )
 position = Vector2( 1780, -760 )
 
 [node name="Meta" parent="Meta_portal" index="1"]
-escena_target = "res://Escenas/Niveles/Nivel17.tscn"
+escena_target = "res://Escenas/Niveles/Nivel18.tscn"
 
 [node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 1 )]
 

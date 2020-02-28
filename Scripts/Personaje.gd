@@ -85,6 +85,7 @@ func _process(delta):
 	#prueba.text = "Gravedad: " + str(self.tiempo_antes_del_proximo_salto)
 	#get_node("../Interfaz/Label").text = str(motion.y)
 	label_ps.text = "Puede saltar: " + str(puede_saltar) + "\nDoble salto: " + str(doble_salto) + "\nPrimer_salto: " + str(primer_salto) + "\nSaltando_doble: " + str(saltando_doble) + "\nGravedad: " + str(motion.y)
+	#label_ps.text = "Puede saltar: " + str(puede_saltar) + "\nDoble salto: " + str(doble_salto) + "\nPrimer_salto: " + str(primer_salto) + "\nGravedad: " + str(motion.y)
 	#+ "\nEn el aire: " + str(en_el_aire)
 	
 	#ray_label.text = "Ray: " + str(self.get_node("RayCast2D").is_colliding())

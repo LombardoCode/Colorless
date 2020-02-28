@@ -13,7 +13,7 @@ func _on_Area2D_body_entered(body):
 			#body.puede_saltar = true
 			#Global.personaje.doble_salto = true
 			body.doble_salto = true
-			body.saltando_doble = false
+			#body.saltando_doble = false
 			funcionalidad = false
 		$Tween.interpolate_property(self, "modulate:a", 1, 0, 1.0, Tween.TRANS_QUINT, Tween.EASE_OUT, 0)
 		$Tween.interpolate_property(self, "scale", self.get_scale(), Vector2(0, 0), 1.0, Tween.TRANS_QUINT, Tween.EASE_OUT, 0)

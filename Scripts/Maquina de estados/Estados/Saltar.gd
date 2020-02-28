@@ -50,11 +50,41 @@ func update(delta):
 		# Le indicamos la gravedad que debe de seguir
 		owner.motion.y += owner.GRAVEDAD * delta
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		if Input.is_action_pressed("tecla_w") and owner.puede_saltar:
 			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
 			owner.puede_saltar = false
 		if Input.is_action_just_pressed("tecla_w") and owner.doble_salto:
-			emit_signal("terminado", "Salto_doble")
+			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
+			owner.doble_salto = false
+			owner.saltando_doble = true
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		# Si suelta el botón
 		#if Input.is_action_just_released("tecla_w") and owner.motion.y < owner.VELOCIDAD_SALTO_MIN:
@@ -63,6 +93,20 @@ func update(delta):
 #			if owner.motion.y > -450:
 #				owner.motion.y = 1
 #				print("Se dejó de presionar: " + str(owner.motion.y))
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		if owner.motion.y > 0:
 			emit_signal("terminado", "Caerse")

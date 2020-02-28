@@ -390,6 +390,39 @@ __meta__ = {
 }
 
 [node name="Fondo_cielo_azul" parent="." instance=ExtResource( 19 )]
+
+[node name="Salto_extra" parent="." instance=ExtResource( 11 )]
+position = Vector2( 292.632, 520 )
+
+[node name="Salto_extra2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 289.474, 402.105 )
+
+[node name="Salto_extra3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 215.79, 522.105 )
+
+[node name="Salto_extra4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 287.368, 284.211 )
+
+[node name="Salto_extra5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 366.316, 524.21 )
+
+[node name="Salto_extra6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 365.263, 443.158 )
+
+[node name="Salto_extra7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 365.263, 374.737 )
+
+[node name="Salto_extra8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 364.211, 304.211 )
+
+[node name="Salto_extra9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 364.211, 228.421 )
+
+[node name="Salto_extra10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 366.316, 173.684 )
+
+[node name="Salto_extra11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 366.316, 102.105 )
 [connection signal="tween_completed" from="TextBoxes/Tutorial_1/Tween" to="TextBoxes/Tutorial_1" method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="TextBoxes/Salto_1/Tween" to="TextBoxes/Salto_1" method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="TextBoxes/Saltos_prolongados_1/Tween" to="TextBoxes/Saltos_prolongados_1" method="_on_Tween_tween_completed"]

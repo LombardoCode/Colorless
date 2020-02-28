@@ -65,7 +65,6 @@ func update(delta):
 func controlar_input(event):
 	if Input.is_action_just_pressed("tecla_w") and owner.puede_saltar:
 		emit_signal("terminado", "Saltar")
-	pass
 
 # Señales
 func _area_entro(area):
