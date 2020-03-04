@@ -1,0 +1,420 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=2]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=7]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_morado.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=9]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=10]
+[ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=12]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=16]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/Items/Evitable/Pico.gd" type="Script" id=18]
+[ext_resource path="res://Recursos/Sprites/Evitable/Pico_templo_2.png" type="Texture" id=19]
+[ext_resource path="res://Escenas/Items_frontend/Evitable/Pico_templo_2.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.7371, 200 )
+
+[node name="Node" type="Node" groups=[
+"madness",
+]]
+script = ExtResource( 1 )
+nombre_nivel = "Nivel 23 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 520 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 14 )]
+limit_right = 1280
+smoothing_speed = 2.0
+
+[node name="TileMap_castle" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -327675, 39, 0, -262142, 19, 0, -262141, 20, 0, -262140, 21, 0, -262139, 37, 0, -196606, 25, 0, -196605, 26, 0, -196604, 27, 0, -131070, 31, 0, -131069, 32, 0, -131068, 33, 0, -1, 38, 0, -65536, 38, 0, -65535, 38, 0, -65534, 38, 0, -65533, 38, 0, -65532, 38, 0, -65531, 38, 0, -65530, 38, 0, -65529, 38, 0, -65528, 38, 0, -65527, 38, 0, -65526, 38, 0, -65525, 38, 0, -65524, 38, 0, -65523, 38, 0, -65522, 38, 0, -65521, 38, 0, -65520, 38, 0, -65519, 38, 0, -65518, 38, 0, -65517, 38, 0, -65516, 38, 0, -65515, 38, 0, -65514, 38, 0, -65513, 38, 0, -65512, 38, 0, -65511, 38, 0, -65510, 38, 0, -65509, 38, 0, -65508, 38, 0, -65507, 38, 0, -65506, 38, 0, -65505, 38, 0, -65504, 38, 0, 10, 25, 0, 11, 26, 0, 12, 26, 0, 13, 26, 0, 14, 26, 0, 15, 26, 0, 16, 26, 0, 17, 26, 0, 18, 26, 0, 19, 26, 0, 20, 26, 0, 21, 26, 0, 22, 26, 0, 23, 26, 0, 24, 26, 0, 25, 26, 0, 26, 26, 0, 27, 26, 0, 28, 26, 0, 29, 26, 0, 30, 26, 0, 31, 26, 0, 32, 38, 0, 65546, 25, 0, 65547, 26, 0, 65548, 26, 0, 65549, 26, 0, 65550, 26, 0, 65551, 26, 0, 65552, 26, 0, 65553, 26, 0, 65554, 26, 0, 65555, 26, 0, 65556, 26, 0, 65557, 26, 0, 65558, 26, 0, 65559, 26, 0, 65560, 26, 0, 65561, 26, 0, 65562, 26, 0, 65563, 26, 0, 65564, 26, 0, 65565, 26, 0, 65566, 26, 0, 65567, 26, 0, 65568, 38, 0, 131082, 25, 0, 131083, 26, 0, 131084, 26, 0, 131085, 26, 0, 131086, 26, 0, 131087, 26, 0, 131088, 26, 0, 131089, 26, 0, 131090, 26, 0, 131091, 26, 0, 131092, 26, 0, 131093, 26, 0, 131094, 26, 0, 131095, 26, 0, 131096, 26, 0, 131097, 26, 0, 131098, 26, 0, 131099, 26, 0, 131100, 26, 0, 131101, 26, 0, 131102, 26, 0, 131103, 26, 0, 131104, 38, 0, 196618, 25, 0, 196619, 26, 0, 196620, 26, 0, 196621, 26, 0, 196622, 26, 0, 196623, 26, 0, 196624, 26, 0, 196625, 26, 0, 196626, 26, 0, 196627, 26, 0, 196628, 26, 0, 196629, 26, 0, 196630, 26, 0, 196631, 26, 0, 196632, 26, 0, 196633, 26, 0, 196634, 26, 0, 196635, 26, 0, 196636, 26, 0, 196637, 26, 0, 196638, 26, 0, 196639, 26, 0, 196640, 38, 0, 262154, 25, 0, 262155, 26, 0, 262156, 26, 0, 262157, 26, 0, 262158, 26, 0, 262159, 26, 0, 262160, 26, 0, 262161, 26, 0, 262162, 26, 0, 262163, 26, 0, 262164, 26, 0, 262165, 26, 0, 262166, 26, 0, 262167, 26, 0, 262168, 26, 0, 262169, 26, 0, 262170, 26, 0, 262171, 26, 0, 262172, 26, 0, 262173, 26, 0, 262174, 26, 0, 262175, 26, 0, 262176, 38, 0, 327690, 25, 0, 327691, 26, 0, 327692, 26, 0, 327693, 26, 0, 327694, 26, 0, 327695, 26, 0, 327696, 26, 0, 327697, 26, 0, 327698, 26, 0, 327699, 26, 0, 327700, 26, 0, 327701, 26, 0, 327702, 26, 0, 327703, 26, 0, 327704, 26, 0, 327705, 26, 0, 327706, 26, 0, 327707, 26, 0, 327708, 26, 0, 327709, 26, 0, 327710, 26, 0, 327711, 26, 0, 327712, 38, 0, 393226, 25, 0, 393227, 26, 0, 393228, 26, 0, 393229, 26, 0, 393230, 26, 0, 393231, 26, 0, 393232, 26, 0, 393233, 26, 0, 393234, 26, 0, 393235, 26, 0, 393236, 26, 0, 393237, 26, 0, 393238, 26, 0, 393239, 26, 0, 393240, 26, 0, 393241, 26, 0, 393242, 26, 0, 393243, 26, 0, 393244, 26, 0, 393245, 26, 0, 393246, 26, 0, 393247, 26, 0, 393248, 38, 0, 458762, 25, 0, 458763, 26, 0, 458764, 26, 0, 458765, 26, 0, 458766, 26, 0, 458767, 26, 0, 458768, 26, 0, 458769, 26, 0, 458770, 26, 0, 458771, 26, 0, 458772, 26, 0, 458773, 26, 0, 458774, 26, 0, 458775, 26, 0, 458776, 26, 0, 458777, 26, 0, 458778, 26, 0, 458779, 26, 0, 458780, 26, 0, 458781, 26, 0, 458782, 26, 0, 458783, 26, 0, 458784, 38, 0, 524298, 25, 0, 524299, 26, 0, 524300, 26, 0, 524301, 26, 0, 524302, 26, 0, 524303, 26, 0, 524304, 26, 0, 524305, 26, 0, 524306, 26, 0, 524307, 26, 0, 524308, 26, 0, 524309, 26, 0, 524310, 26, 0, 524311, 26, 0, 524312, 26, 0, 524313, 26, 0, 524314, 26, 0, 524315, 26, 0, 524316, 26, 0, 524317, 26, 0, 524318, 26, 0, 524319, 26, 0, 524320, 38, 0, 589834, 25, 0, 589835, 26, 0, 589836, 26, 0, 589837, 26, 0, 589838, 26, 0, 589839, 26, 0, 589840, 26, 0, 589841, 26, 0, 589842, 26, 0, 589843, 26, 0, 589844, 26, 0, 589845, 26, 0, 589846, 26, 0, 589847, 26, 0, 589848, 26, 0, 589849, 26, 0, 589850, 26, 0, 589851, 26, 0, 589852, 26, 0, 589853, 26, 0, 589854, 26, 0, 589855, 26, 0, 589856, 38, 0, 655370, 31, 0, 655371, 32, 0, 655372, 32, 0, 655373, 32, 0, 655374, 32, 0, 655375, 32, 0, 655376, 32, 0, 655377, 32, 0, 655378, 32, 0, 655379, 32, 0, 655380, 32, 0, 655381, 32, 0, 655382, 32, 0, 655383, 32, 0, 655384, 32, 0, 655385, 32, 0, 655386, 32, 0, 655387, 32, 0, 655388, 32, 0, 655389, 32, 0, 655390, 32, 0, 655391, 32, 0, 655392, 38, 0, 720928, 38, 0, 786464, 38, 0, 852000, 38, 0, 917504, 19, 0, 917505, 20, 0, 917506, 20, 0, 917507, 20, 0, 917508, 20, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 20, 0, 917513, 20, 0, 917514, 20, 0, 917515, 20, 0, 917516, 20, 0, 917517, 20, 0, 917518, 20, 0, 917519, 20, 0, 917520, 20, 0, 917521, 20, 0, 917522, 20, 0, 917523, 20, 0, 917524, 20, 0, 917525, 20, 0, 917526, 20, 0, 917527, 20, 0, 917528, 20, 0, 917529, 20, 0, 917530, 20, 0, 917531, 20, 0, 917532, 20, 0, 917533, 20, 0, 917534, 20, 0, 917535, 21, 0, 917536, 38, 0, 983040, 25, 0, 983041, 26, 0, 983042, 26, 0, 983043, 26, 0, 983044, 26, 0, 983045, 26, 0, 983046, 26, 0, 983047, 26, 0, 983048, 26, 0, 983049, 26, 0, 983050, 26, 0, 983051, 26, 0, 983052, 26, 0, 983053, 26, 0, 983054, 26, 0, 983055, 26, 0, 983056, 26, 0, 983057, 26, 0, 983058, 26, 0, 983059, 26, 0, 983060, 26, 0, 983061, 26, 0, 983062, 26, 0, 983063, 26, 0, 983064, 26, 0, 983065, 26, 0, 983066, 26, 0, 983067, 26, 0, 983068, 26, 0, 983069, 26, 0, 983070, 26, 0, 983071, 27, 0, 983072, 38, 0, 1048576, 26, 0, 1048577, 26, 0, 1048578, 26, 0, 1048579, 26, 0, 1048580, 26, 0, 1048581, 26, 0, 1048582, 26, 0, 1048583, 26, 0, 1048584, 26, 0, 1048585, 26, 0, 1048586, 26, 0, 1048587, 26, 0, 1048588, 26, 0, 1048589, 26, 0, 1048590, 26, 0, 1048591, 26, 0, 1048592, 26, 0, 1048593, 26, 0, 1048594, 26, 0, 1048595, 26, 0, 1048596, 26, 0, 1048597, 26, 0, 1048598, 26, 0, 1048599, 26, 0, 1048600, 26, 0, 1048601, 26, 0, 1048602, 26, 0, 1048603, 26, 0, 1048604, 26, 0, 1048605, 26, 0, 1048606, 26, 0, 1048607, 27, 0, 1048608, 38, 0, 1114112, 25, 0, 1114113, 26, 0, 1114114, 26, 0, 1114115, 26, 0, 1114116, 26, 0, 1114117, 26, 0, 1114118, 26, 0, 1114119, 26, 0, 1114120, 26, 0, 1114121, 26, 0, 1114122, 26, 0, 1114123, 26, 0, 1114124, 26, 0, 1114125, 26, 0, 1114126, 26, 0, 1114127, 26, 0, 1114128, 26, 0, 1114129, 26, 0, 1114130, 26, 0, 1114131, 26, 0, 1114132, 26, 0, 1114133, 26, 0, 1114134, 26, 0, 1114135, 26, 0, 1114136, 26, 0, 1114137, 26, 0, 1114138, 26, 0, 1114139, 26, 0, 1114140, 26, 0, 1114141, 26, 0, 1114142, 26, 0, 1114143, 27, 0, 1114144, 38, 0 )
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="." groups=[
+"tilemap",
+]]
+scale = Vector2( 2.5, 2.5 )
+z_index = -3
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 56, 0, 131071, 56, 0, 196607, 56, 0, 262143, 56, 0, 327679, 56, 0, 393215, 56, 0, 458751, 56, 0, 524287, 56, 0, 589823, 56, 0, 655359, 56, 0, 720895, 56, 0, 786431, 56, 0, 851967, 56, 0, 917503, 56, 0, 983039, 56, 0, 1048575, 56, 0, 1114111, 56, 0, 1179647, 56, 0 )
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 3 )]
+stream = ExtResource( 6 )
+
+[node name="Meta_portal" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1220, 520 )
+
+[node name="Meta" parent="Meta_portal" index="1"]
+escena_target = "res://Escenas/Niveles/Nivel23.tscn"
+
+[node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 8 )]
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 10 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 13 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 15 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 17 )]
+
+[node name="Picos_movibles" type="Node" parent="."]
+
+[node name="Pico9" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 220, 540 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_v = true
+trampa_direccion = -1
+trampa_velocidad = 800.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico9"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico9" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico9/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico9/Area2D_Trampa"]
+scale = Vector2( 1.22359, 1.32518 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico9"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico9"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico9"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pico10" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 420, 540 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_h = true
+trampa_direccion = -1
+trampa_velocidad = 800.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico10"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico10" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico10/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico10/Area2D_Trampa"]
+scale = Vector2( 11.1068, 0.112912 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico10"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico10"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico10"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pico11" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 560, 460 )
+rotation = -3.14159
+scale = Vector2( 0.906399, 0.746381 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_v = true
+trampa_direccion = 1
+trampa_velocidad = 300.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico11"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico11" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico11/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico11/Area2D_Trampa"]
+scale = Vector2( 1.44946, -0.715992 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico11"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico11"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico11"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pico12" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 1300, 460 )
+rotation = -1.5708
+scale = Vector2( 0.906399, 0.746381 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_h = true
+trampa_direccion = -1
+trampa_velocidad = 260.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico12"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico12" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico12/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico12/Area2D_Trampa"]
+scale = Vector2( -8.98402, -1.87584 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico12"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico12"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico12"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pico13" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 1300, 500 )
+rotation = -1.5708
+scale = Vector2( 0.906399, 0.746381 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_h = true
+trampa_direccion = -1
+trampa_velocidad = 260.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico13"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico13" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico13/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico13/Area2D_Trampa"]
+scale = Vector2( -5.7912, -1.87507 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico13"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico13"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico13"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pico14" type="KinematicBody2D" parent="Picos_movibles"]
+position = Vector2( 1300, 540 )
+rotation = -1.5708
+scale = Vector2( 0.910833, 0.746104 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+trampa = true
+mov_trampa_h = true
+trampa_direccion = -1
+trampa_velocidad = 260.0
+
+[node name="Sprite" type="Sprite" parent="Picos_movibles/Pico14"]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Picos_movibles/Pico14" groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Picos_movibles/Pico14/Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="Picos_movibles/Pico14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picos_movibles/Pico14/Area2D_Trampa"]
+scale = Vector2( -7.30099, -1.87326 )
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="Picos_movibles/Pico14"]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="Picos_movibles/Pico14"]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="Picos_movibles/Pico14"]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Picos" type="Node" parent="."]
+
+[node name="Pico" parent="Picos" instance=ExtResource( 20 )]
+position = Vector2( 700, 540 )
+
+[node name="Pico3" parent="Picos" instance=ExtResource( 20 )]
+position = Vector2( 980, 540 )
+
+[node name="Pico4" parent="Picos" instance=ExtResource( 20 )]
+position = Vector2( 840, 460 )
+rotation = 3.14159
+
+[node name="Saltos_extra" type="Node" parent="."]
+
+[node name="Picos_giratorios" type="Node" parent="."]
+
+[node name="Plataformas_movibles" type="Node" parent="."]
+
+[editable path="Meta_portal"]
