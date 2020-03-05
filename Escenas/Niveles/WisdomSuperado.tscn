@@ -87,6 +87,7 @@ escena_target = "res://Escenas/Interfaz.tscn"
 [node name="Fade" parent="Interfaz" instance=ExtResource( 14 )]
 
 [node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 15 )]
+visible = false
 
 [node name="Fondo_cielo_azul" parent="." instance=ExtResource( 16 )]
 

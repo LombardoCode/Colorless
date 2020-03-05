@@ -77,7 +77,7 @@ stream = ExtResource( 6 )
 position = Vector2( 1220, 520 )
 
 [node name="Meta" parent="Meta_portal" index="1"]
-escena_target = "res://Escenas/Niveles/Nivel23.tscn"
+escena_target = "res://Escenas/Niveles/Nivel24.tscn"
 
 [node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 8 )]
 
@@ -206,7 +206,6 @@ __meta__ = {
 [node name="Pico11" type="KinematicBody2D" parent="Picos_movibles"]
 position = Vector2( 560, 460 )
 rotation = -3.14159
-scale = Vector2( 0.906399, 0.746381 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true

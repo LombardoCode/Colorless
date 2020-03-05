@@ -14,16 +14,25 @@ export(int) var trampa_direccion
 export(float) var trampa_velocidad
 export(bool) var trampa_inciar_auto = false
 
-
+# Visibilidad
+#onready var visibility_notifier = $VisibilityNotifier2D
 
 
 var motion = Vector2()
 var area
 
 func _ready():
+	# Activamos el Area2D
 	if self.has_node("Area2D_Trampa"):
 		$Area2D_Trampa.connect("body_entered", self, "_activar_trampa")
-	pass
+	
+	# Activamos el VisibilityNotifier
+	var visibility_notifier = VisibilityNotifier2D.new()
+	add_child(visibility_notifier)
+	visibility_notifier.rect = Rect2(-20, -20, 40, 40)
+	
+	visibility_notifier.connect("screen_exited", self, "screen_exit")
+	visibility_notifier.connect("screen_entered", self, "screen_enter")
 
 func _process(delta):
 	$Label.text = str(direccion)
@@ -59,4 +68,9 @@ func _activar_trampa(body):
 	if body.get_name() == "Personaje":
 		trampa_activada = true
 	
-	
+func screen_exit():
+	self.hide()
+
+func screen_enter():
+	self.show()
+

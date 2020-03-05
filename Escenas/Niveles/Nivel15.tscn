@@ -157,13 +157,13 @@ direccion = -1.0
 [node name="Pico5" parent="Picos" instance=ExtResource( 11 )]
 position = Vector2( 740, 500 )
 b_mov_h = true
-desplazamiento = 100.0
+desplazamiento = 300.0
 direccion = -1.0
 
 [node name="Pico6" parent="Picos" instance=ExtResource( 11 )]
 position = Vector2( 980, 500 )
 b_mov_h = true
-desplazamiento = 100.0
+desplazamiento = 300.0
 direccion = 1.0
 
 [node name="Saltos_extra" type="Node" parent="."]

@@ -1,0 +1,336 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=1]
+[ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=2]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=4]
+[ext_resource path="res://Escenas/Items_frontend/Evitable/Pico.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=6]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=8]
+[ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=10]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_morado.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Escenas/Items_frontend/Evitable/Picos_giratorios.tscn" type="PackedScene" id=20]
+
+[node name="Node" type="Node" groups=[
+"madness",
+]]
+script = ExtResource( 4 )
+nombre_nivel = "Nivel 30 / 30"
+
+[node name="Personaje" parent="." instance=ExtResource( 12 )]
+position = Vector2( 80, 600 )
+scale = Vector2( 0.42, 0.42 )
+z_index = -1
+
+[node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 13 )]
+limit_right = 3000
+smoothing_speed = 5.0
+drag_margin_bottom = 0.2
+
+[node name="TileMap_castle" type="TileMap" parent="." groups=[
+"tilemap",
+]]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1245184, 55, 0, -1245183, 56, 0, -1245182, 47, 0, -1245181, 55, 0, -1245180, 56, 0, -1245179, 47, 0, -1245178, 55, 0, -1245177, 56, 0, -1245176, 47, 0, -1245175, 55, 0, -1245174, 56, 0, -1245173, 47, 0, -1245172, 55, 0, -1245171, 56, 0, -1245170, 47, 0, -1245169, 55, 0, -1245168, 56, 0, -1245167, 47, 0, -1245166, 55, 0, -1245165, 56, 0, -1245164, 47, 0, -1245163, 55, 0, -1245162, 56, 0, -1245161, 47, 0, -1245160, 55, 0, -1245159, 56, 0, -1245158, 47, 0, -1245157, 55, 0, -1245156, 56, 0, -1245155, 47, 0, -1245154, 55, 0, -1245153, 56, 0, -1179648, 47, 0, -1179647, 55, 0, -1179646, 56, 0, -1179645, 47, 0, -1179644, 55, 0, -1179643, 56, 0, -1179642, 47, 0, -1179641, 55, 0, -1179640, 56, 0, -1179639, 47, 0, -1179638, 55, 0, -1179637, 56, 0, -1179636, 47, 0, -1179635, 55, 0, -1179634, 56, 0, -1179633, 47, 0, -1179632, 55, 0, -1179631, 56, 0, -1179630, 47, 0, -1179629, 55, 0, -1179628, 56, 0, -1179627, 47, 0, -1179626, 55, 0, -1179625, 56, 0, -1179624, 47, 0, -1179623, 55, 0, -1179622, 56, 0, -1179621, 47, 0, -1179620, 55, 0, -1179619, 56, 0, -1179618, 47, 0, -1179617, 55, 0, -1114112, 56, 0, -1114111, 47, 0, -1114110, 55, 0, -1114109, 56, 0, -1114108, 47, 0, -1114107, 55, 0, -1114106, 56, 0, -1114105, 47, 0, -1114104, 55, 0, -1114103, 56, 0, -1114102, 47, 0, -1114101, 55, 0, -1114100, 56, 0, -1114099, 47, 0, -1114098, 55, 0, -1114097, 56, 0, -1114096, 47, 0, -1114095, 55, 0, -1114094, 56, 0, -1114093, 47, 0, -1114092, 55, 0, -1114091, 56, 0, -1114090, 47, 0, -1114089, 55, 0, -1114082, 56, 0, -1114081, 47, 0, -1048576, 55, 0, -1048575, 56, 0, -1048574, 47, 0, -1048573, 55, 0, -1048572, 56, 0, -1048571, 47, 0, -1048570, 55, 0, -1048569, 56, 0, -1048568, 47, 0, -1048567, 55, 0, -1048566, 56, 0, -1048565, 47, 0, -1048564, 55, 0, -1048563, 56, 0, -1048562, 47, 0, -1048561, 55, 0, -1048560, 56, 0, -1048559, 47, 0, -1048558, 55, 0, -1048557, 56, 0, -1048556, 47, 0, -1048555, 55, 0, -1048545, 56, 0, -983040, 47, 0, -983039, 55, 0, -983038, 56, 0, -983037, 47, 0, -983036, 55, 0, -983035, 56, 0, -983034, 47, 0, -983033, 55, 0, -983032, 56, 0, -983031, 47, 0, -983030, 55, 0, -983029, 56, 0, -983028, 47, 0, -983027, 55, 0, -983026, 56, 0, -983025, 47, 0, -983024, 55, 0, -983023, 56, 0, -983022, 47, 0, -983021, 55, 0, -983020, 56, 0, -983009, 55, 0, -917504, 56, 0, -917503, 47, 0, -917502, 55, 0, -917501, 56, 0, -917500, 47, 0, -917499, 55, 0, -917498, 56, 0, -917493, 55, 0, -917492, 56, 0, -917491, 47, 0, -917490, 55, 0, -917489, 56, 0, -917488, 47, 0, -917487, 55, 0, -917486, 56, 0, -917485, 47, 0, -917473, 47, 0, -851968, 55, 0, -851967, 56, 0, -851966, 47, 0, -851965, 55, 0, -851964, 56, 0, -851963, 47, 0, -851962, 55, 0, -851956, 55, 0, -851955, 56, 0, -851954, 47, 0, -851953, 55, 0, -851952, 56, 0, -851951, 47, 0, -851950, 55, 0, -851940, 56, 0, -851937, 56, 0, -786432, 47, 0, -786431, 55, 0, -786430, 56, 0, -786429, 47, 0, -786428, 55, 0, -786427, 56, 0, -786426, 47, 0, -786425, 55, 0, -786405, 47, 0, -786404, 55, 0, -786401, 55, 0, -720896, 56, 0, -720895, 47, 0, -720894, 55, 0, -720893, 56, 0, -720892, 47, 0, -720891, 55, 0, -720890, 56, 0, -720889, 47, 0, -720869, 56, 0, -720865, 47, 0, -655360, 55, 0, -655359, 56, 0, -655358, 47, 0, -655357, 55, 0, -655356, 56, 0, -655355, 47, 0, -655354, 55, 0, -655353, 56, 0, -655352, 47, 0, -655351, 55, 0, -655350, 56, 0, -655349, 47, 0, -655333, 55, 0, -655329, 56, 0, -589824, 47, 0, -589822, 56, 0, -589821, 47, 0, -589820, 55, 0, -589819, 56, 0, -589818, 47, 0, -589817, 55, 0, -589816, 56, 0, -589815, 47, 0, -589814, 55, 0, -589813, 56, 0, -589808, 55, 0, -589807, 56, 0, -589806, 47, 0, -589797, 47, 0, -589793, 55, 0, -524288, 56, 0, -524286, 55, 0, -524285, 56, 0, -524284, 47, 0, -524283, 55, 0, -524282, 56, 0, -524281, 47, 0, -524280, 55, 0, -524279, 56, 0, -524278, 47, 0, -524277, 55, 0, -524272, 47, 0, -524271, 55, 0, -524270, 56, 0, -524269, 47, 0, -524268, 55, 0, -524267, 56, 0, -524266, 47, 0, -524265, 55, 0, -524264, 56, 0, -524263, 47, 0, -524262, 55, 0, -524261, 56, 0, -524260, 47, 0, -524259, 55, 0, -524258, 56, 0, -524257, 47, 0, -1, 41, 0, -65536, 41, 0, -65535, 41, 0, -65534, 41, 0, -65533, 41, 0, -65532, 41, 0, -65531, 41, 0, -65530, 41, 0, -65529, 41, 0, -65528, 41, 0, -65527, 41, 0, -65526, 41, 0, -65525, 41, 0, -65524, 41, 0, -65523, 41, 0, -65522, 41, 0, -65521, 41, 0, -65520, 41, 0, -65519, 41, 0, -65518, 41, 0, -65517, 41, 0, -65516, 41, 0, -65515, 41, 0, -65514, 41, 0, -65513, 41, 0, -65512, 41, 0, -65511, 41, 0, -65510, 41, 0, -65509, 41, 0, -65508, 41, 0, -65507, 41, 0, -65506, 41, 0, -65505, 41, 0, -65504, 41, 0, -65503, 41, 0, -65502, 41, 0, -65501, 41, 0, -65500, 41, 0, -65499, 41, 0, -65498, 41, 0, -65497, 41, 0, -65496, 41, 0, -65495, 41, 0, -65494, 41, 0, -65493, 41, 0, -65492, 41, 0, -65491, 41, 0, -65490, 41, 0, -65489, 41, 0, -65488, 41, 0, -65487, 41, 0, -65486, 41, 0, -65485, 41, 0, -65484, 41, 0, -65483, 41, 0, -65482, 41, 0, -65481, 41, 0, -65480, 41, 0, -65479, 41, 0, -65478, 41, 0, -65477, 41, 0, -65476, 41, 0, -65475, 41, 0, -65474, 41, 0, -65473, 41, 0, -65472, 41, 0, -65471, 41, 0, -65470, 41, 0, -65469, 41, 0, 34, 37, 0, 55, 57, 0, 56, 57, 0, 67, 57, 0, 68, 57, 0, 69, 57, 0, 70, 57, 0, 71, 57, 0, 72, 57, 0, 73, 57, 0, 74, 57, 0, 65570, 37, 0, 65591, 57, 0, 65592, 57, 0, 65609, 57, 0, 65610, 57, 0, 131106, 37, 0, 131111, 47, 0, 131112, 47, 0, 131113, 47, 0, 131114, 47, 0, 131115, 47, 0, 131116, 47, 0, 131117, 47, 0, 131118, 47, 0, 131119, 47, 0, 131120, 47, 0, 131121, 47, 0, 131122, 47, 0, 131123, 47, 0, 131124, 47, 0, 131127, 57, 0, 131128, 57, 0, 131145, 57, 0, 131146, 57, 0, 196642, 37, 0, 196659, 47, 0, 196660, 47, 0, 196663, 57, 0, 196664, 57, 0, 196681, 57, 0, 196682, 57, 0, 262178, 37, 0, 262179, 37, 0, 262180, 47, 0, 262195, 47, 0, 262196, 47, 0, 262199, 57, 0, 262200, 57, 0, 262211, 57, 0, 262212, 57, 0, 262213, 57, 0, 262214, 57, 0, 262215, 57, 0, 262216, 57, 0, 262217, 57, 0, 262218, 57, 0, 327714, 37, 0, 327715, 37, 0, 327716, 47, 0, 327731, 47, 0, 327732, 47, 0, 327735, 57, 0, 327736, 57, 0, 327747, 57, 0, 327748, 57, 0, 327749, 57, 0, 327750, 57, 0, 327751, 57, 0, 327752, 57, 0, 327753, 57, 0, 327754, 57, 0, 393250, 37, 0, 393251, 37, 0, 393256, 55, 0, 393257, 56, 0, 393267, 47, 0, 393268, 47, 0, 393271, 57, 0, 393272, 57, 0, 393283, 57, 0, 393284, 57, 0, 393285, 57, 0, 393286, 57, 0, 393287, 57, 0, 393288, 57, 0, 393289, 57, 0, 393290, 57, 0, 458773, 37, 0, 458774, 37, 0, 458782, 37, 0, 458783, 37, 0, 458784, 37, 0, 458786, 37, 0, 458787, 37, 0, 458803, 47, 0, 458804, 47, 0, 458807, 57, 0, 458808, 57, 0, 458819, 57, 0, 458820, 57, 0, 458821, 57, 0, 458822, 57, 0, 458823, 57, 0, 458824, 57, 0, 458825, 57, 0, 458826, 57, 0, 524309, 37, 0, 524310, 37, 0, 524318, 37, 0, 524319, 37, 0, 524320, 37, 0, 524322, 37, 0, 524323, 37, 0, 524339, 47, 0, 524340, 47, 0, 524343, 57, 0, 524344, 57, 0, 524355, 57, 0, 524356, 57, 0, 524357, 57, 0, 524358, 57, 0, 524359, 57, 0, 524360, 57, 0, 524361, 57, 0, 524362, 57, 0, 589839, 37, 0, 589840, 37, 0, 589845, 37, 0, 589846, 37, 0, 589854, 37, 0, 589855, 37, 0, 589856, 37, 0, 589858, 37, 0, 589859, 37, 0, 589875, 47, 0, 589876, 47, 0, 589879, 57, 0, 589880, 57, 0, 589891, 57, 0, 589892, 57, 0, 589893, 57, 0, 589894, 57, 0, 589895, 57, 0, 589896, 57, 0, 589897, 57, 0, 589898, 57, 0, 655375, 37, 0, 655376, 37, 0, 655381, 37, 0, 655382, 37, 0, 655390, 37, 0, 655391, 37, 0, 655392, 37, 0, 655394, 37, 0, 655395, 37, 0, 655405, 55, 0, 655406, 56, 0, 655411, 47, 0, 655412, 47, 0, 655415, 57, 0, 655416, 57, 0, 655427, 57, 0, 655428, 57, 0, 655429, 57, 0, 655430, 57, 0, 655431, 57, 0, 655432, 57, 0, 655433, 57, 0, 655434, 57, 0, 720906, 37, 0, 720907, 37, 0, 720911, 37, 0, 720912, 37, 0, 720917, 37, 0, 720918, 37, 0, 720926, 37, 0, 720927, 37, 0, 720928, 37, 0, 720930, 37, 0, 720931, 37, 0, 720947, 47, 0, 720948, 47, 0, 720951, 57, 0, 720952, 57, 0, 720963, 57, 0, 720964, 57, 0, 720965, 57, 0, 720966, 57, 0, 720967, 57, 0, 720968, 57, 0, 720969, 57, 0, 720970, 57, 0, 786442, 37, 0, 786443, 37, 0, 786447, 37, 0, 786448, 37, 0, 786453, 37, 0, 786454, 37, 0, 786462, 37, 0, 786463, 37, 0, 786464, 37, 0, 786466, 37, 0, 786467, 37, 0, 786483, 47, 0, 786484, 47, 0, 786487, 57, 0, 786488, 57, 0, 786499, 57, 0, 786500, 57, 0, 786501, 57, 0, 786502, 57, 0, 786503, 57, 0, 786504, 57, 0, 786505, 57, 0, 786506, 57, 0, 851974, 37, 0, 851975, 37, 0, 851978, 37, 0, 851979, 37, 0, 851983, 37, 0, 851984, 37, 0, 851989, 37, 0, 851990, 37, 0, 851998, 37, 0, 851999, 37, 0, 852000, 37, 0, 852002, 37, 0, 852003, 37, 0, 852019, 47, 0, 852020, 47, 0, 852023, 57, 0, 852024, 57, 0, 852035, 57, 0, 852036, 57, 0, 852037, 57, 0, 852038, 57, 0, 852039, 57, 0, 852040, 57, 0, 852041, 57, 0, 852042, 57, 0, 917510, 37, 0, 917511, 37, 0, 917514, 37, 0, 917515, 37, 0, 917519, 37, 0, 917520, 37, 0, 917525, 37, 0, 917526, 37, 0, 917534, 37, 0, 917535, 37, 0, 917536, 37, 0, 917545, 55, 0, 917546, 56, 0, 917555, 47, 0, 917556, 47, 0, 917571, 57, 0, 917572, 57, 0, 917573, 57, 0, 917574, 57, 0, 917575, 57, 0, 917576, 57, 0, 917577, 57, 0, 917578, 57, 0, 983044, 37, 0, 983046, 37, 0, 983047, 37, 0, 983050, 37, 0, 983051, 37, 0, 983055, 37, 0, 983056, 37, 0, 983061, 37, 0, 983062, 37, 0, 983070, 37, 0, 983071, 37, 0, 983072, 37, 0, 983073, 37, 0, 983074, 37, 0, 983075, 37, 0, 983076, 37, 0, 983077, 37, 0, 983091, 47, 0, 983092, 47, 0, 983107, 57, 0, 983108, 57, 0, 983109, 57, 0, 983110, 57, 0, 983111, 57, 0, 983112, 57, 0, 983113, 57, 0, 983114, 57, 0, 1048576, 22, 0, 1048577, 23, 0, 1048578, 23, 0, 1048579, 23, 0, 1048580, 23, 0, 1048581, 23, 0, 1048582, 23, 0, 1048583, 23, 0, 1048584, 23, 0, 1048585, 23, 0, 1048586, 23, 0, 1048587, 23, 0, 1048588, 23, 0, 1048589, 23, 0, 1048590, 23, 0, 1048591, 23, 0, 1048592, 23, 0, 1048593, 23, 0, 1048594, 23, 0, 1048595, 23, 0, 1048596, 23, 0, 1048597, 23, 0, 1048598, 23, 0, 1048599, 23, 0, 1048600, 23, 0, 1048601, 23, 0, 1048602, 23, 0, 1048603, 23, 0, 1048604, 23, 0, 1048605, 23, 0, 1048606, 23, 0, 1048607, 23, 0, 1048608, 23, 0, 1048609, 23, 0, 1048610, 23, 0, 1048611, 23, 0, 1048612, 23, 0, 1048613, 23, 0, 1048614, 23, 0, 1048615, 23, 0, 1048616, 23, 0, 1048617, 23, 0, 1048618, 23, 0, 1048619, 23, 0, 1048620, 23, 0, 1048621, 23, 0, 1048622, 23, 0, 1048623, 23, 0, 1048624, 23, 0, 1048625, 23, 0, 1048626, 23, 0, 1048627, 23, 0, 1048628, 23, 0, 1048629, 23, 0, 1048630, 23, 0, 1048631, 23, 0, 1048632, 23, 0, 1048633, 23, 0, 1048634, 23, 0, 1048635, 23, 0, 1048636, 23, 0, 1048637, 23, 0, 1048638, 23, 0, 1048639, 23, 0, 1048640, 23, 0, 1048641, 23, 0, 1048642, 23, 0, 1048643, 23, 0, 1048644, 23, 0, 1048645, 23, 0, 1048646, 23, 0, 1048647, 23, 0, 1048648, 23, 0, 1048649, 23, 0, 1048650, 24, 0, 1114112, 28, 0, 1114113, 29, 0, 1114114, 29, 0, 1114115, 29, 0, 1114116, 29, 0, 1114117, 29, 0, 1114118, 29, 0, 1114119, 29, 0, 1114120, 29, 0, 1114121, 29, 0, 1114122, 29, 0, 1114123, 29, 0, 1114124, 29, 0, 1114125, 29, 0, 1114126, 29, 0, 1114127, 29, 0, 1114128, 29, 0, 1114129, 29, 0, 1114130, 29, 0, 1114131, 29, 0, 1114132, 29, 0, 1114133, 29, 0, 1114134, 29, 0, 1114135, 29, 0, 1114136, 29, 0, 1114137, 29, 0, 1114138, 29, 0, 1114139, 29, 0, 1114140, 29, 0, 1114141, 29, 0, 1114142, 29, 0, 1114143, 29, 0, 1114144, 29, 0, 1114145, 29, 0, 1114146, 29, 0, 1114147, 29, 0, 1114148, 29, 0, 1114149, 29, 0, 1114150, 29, 0, 1114151, 29, 0, 1114152, 29, 0, 1114153, 29, 0, 1114154, 29, 0, 1114155, 29, 0, 1114156, 29, 0, 1114157, 29, 0, 1114158, 29, 0, 1114159, 29, 0, 1114160, 29, 0, 1114161, 29, 0, 1114162, 29, 0, 1114163, 29, 0, 1114164, 29, 0, 1114165, 29, 0, 1114166, 29, 0, 1114167, 29, 0, 1114168, 29, 0, 1114169, 29, 0, 1114170, 29, 0, 1114171, 29, 0, 1114172, 29, 0, 1114173, 29, 0, 1114174, 29, 0, 1114175, 29, 0, 1114176, 29, 0, 1114177, 29, 0, 1114178, 29, 0, 1114179, 29, 0, 1114180, 29, 0, 1114181, 29, 0, 1114182, 29, 0, 1114183, 29, 0, 1114184, 29, 0, 1114185, 29, 0, 1114186, 30, 0 )
+
+[node name="TileMap_dia" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap_cueva" type="TileMap" parent="." groups=[
+"tilemap",
+]]
+scale = Vector2( 2.5, 2.5 )
+z_index = -3
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 56, 0, 131071, 56, 0, 196607, 56, 0, 262143, 56, 0, 327679, 56, 0, 393215, 56, 0, 458751, 56, 0, 524287, 56, 0, 589823, 56, 0, 655359, 56, 0, 720895, 56, 0, 786431, 56, 0, 851967, 56, 0, 917503, 56, 0, 983039, 56, 0, 1048575, 56, 0, 1114111, 56, 0, 1179647, 56, 0 )
+
+[node name="TileMap_templo" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+format = 1
+
+[node name="Musica" parent="." instance=ExtResource( 14 )]
+stream = ExtResource( 9 )
+
+[node name="Meta_portal" parent="." instance=ExtResource( 15 )]
+position = Vector2( 2840, 120 )
+
+[node name="Meta" parent="Meta_portal" index="1"]
+escena_target = "res://Escenas/Niveles/Nivel30.tscn"
+
+[node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 16 )]
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 16.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
+
+[node name="Fade" parent="Interfaz" instance=ExtResource( 17 )]
+
+[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 18 )]
+
+[node name="Animacion_nivel" parent="." instance=ExtResource( 11 )]
+
+[node name="Picos_movibles" type="Node" parent="."]
+
+[node name="Picos" type="Node" parent="."]
+
+[node name="Pico" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 220, 620 )
+
+[node name="Pico2" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 340, 620 )
+
+[node name="Pico3" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 380, 620 )
+
+[node name="Pico4" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 500, 620 )
+
+[node name="Pico5" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 540, 620 )
+
+[node name="Pico6" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 580, 620 )
+
+[node name="Pico7" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 700, 620 )
+
+[node name="Pico8" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 740, 620 )
+
+[node name="Pico9" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 780, 620 )
+
+[node name="Pico10" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 820, 620 )
+
+[node name="Pico11" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 940, 620 )
+
+[node name="Pico12" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 980, 620 )
+
+[node name="Pico13" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1020, 620 )
+
+[node name="Pico14" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1060, 620 )
+
+[node name="Pico15" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1100, 620 )
+
+[node name="Pico16" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1140, 620 )
+
+[node name="Pico17" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1180, 620 )
+
+[node name="Pico18" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1540, 620 )
+
+[node name="Pico19" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1580, 620 )
+
+[node name="Pico20" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1620, 620 )
+
+[node name="Pico21" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1660, 620 )
+
+[node name="Pico22" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1700, 620 )
+
+[node name="Pico23" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1740, 620 )
+
+[node name="Pico24" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1780, 620 )
+
+[node name="Pico25" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1820, 620 )
+
+[node name="Pico26" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1860, 620 )
+
+[node name="Pico27" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1900, 620 )
+
+[node name="Pico28" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1940, 620 )
+
+[node name="Pico29" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 1980, 620 )
+
+[node name="Pico30" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 2020, 620 )
+
+[node name="Pico31" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 2140, 180 )
+rotation = 1.5708
+
+[node name="Pico32" parent="Picos" instance=ExtResource( 5 )]
+position = Vector2( 2180, 460 )
+rotation = -1.5708
+
+[node name="Saltos_extra" type="Node" parent="."]
+
+[node name="Salto_extra" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 1060, 180 )
+
+[node name="Salto_extra3" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 1720, 480 )
+
+[node name="Salto_extra4" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 1740, 260 )
+
+[node name="Salto_extra5" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 1540, 180 )
+
+[node name="Salto_extra6" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 2660, 540 )
+
+[node name="Salto_extra7" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 2660, 460 )
+
+[node name="Salto_extra8" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 2660, 380 )
+
+[node name="Salto_extra9" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 2660, 300 )
+
+[node name="Salto_extra10" parent="Saltos_extra" instance=ExtResource( 19 )]
+position = Vector2( 2660, 220 )
+
+[node name="Picos_giratorios" type="Node" parent="."]
+
+[node name="Picos_giratorios" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 540, 560 )
+b_mov_v = true
+direccion = -1
+desplazamiento = 600.0
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios2" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 760, 560 )
+b_mov_v = true
+direccion = -1
+desplazamiento = 600.0
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios3" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 1000, 560 )
+b_mov_v = true
+direccion = -1
+desplazamiento = 400.0
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios4" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 1120, 560 )
+b_mov_v = true
+direccion = -1
+desplazamiento = 400.0
+velocidad_giro = 10.0
+
+[node name="Picos_giratorios6" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 1800, 500 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios7" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 1820, 340 )
+b_mov_h = true
+direccion = -1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios8" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 1660, 180 )
+b_mov_h = true
+direccion = -1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios9" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2640, 540 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios10" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2560, 480 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios11" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2500, 420 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios12" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2440, 360 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios13" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2380, 300 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Picos_giratorios14" parent="Picos_giratorios" instance=ExtResource( 20 )]
+position = Vector2( 2320, 240 )
+b_mov_h = true
+direccion = 1
+desplazamiento = 300.0
+velocidad_giro = 6.0
+
+[node name="Plataformas_movibles" type="Node" parent="."]
+
+[editable path="Meta_portal"]

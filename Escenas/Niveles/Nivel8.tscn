@@ -19,7 +19,6 @@
 [ext_resource path="res://Escenas/Items_frontend/Evitable/Pico.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=20]
 
-
 [node name="Node" type="Node" groups=[
 "arrival",
 ]]
@@ -33,6 +32,8 @@ z_index = -1
 
 [node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 10 )]
 limit_right = 1280
+smoothing_speed = 5.0
+drag_margin_bottom = 0.2
 
 [node name="TileMap_castle" type="TileMap" parent="."]
 scale = Vector2( 2.5, 2.5 )

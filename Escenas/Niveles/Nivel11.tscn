@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=1]
 [ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=2]
@@ -18,7 +18,6 @@
 [ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=17]
 [ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=19]
 
 [node name="Node" type="Node" groups=[
 "arrival",
@@ -135,11 +134,5 @@ rotation = 3.14159
 position = Vector2( 1220, 540 )
 
 [node name="Saltos_extra" type="Node" parent="."]
-
-[node name="Salto_extra" parent="Saltos_extra" instance=ExtResource( 19 )]
-position = Vector2( 360, 360 )
-
-[node name="Salto_extra2" parent="Saltos_extra" instance=ExtResource( 19 )]
-position = Vector2( 560, 160 )
 
 [editable path="Meta_portal"]

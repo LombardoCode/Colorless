@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Items/Evitable/Pico.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Sprites/Evitable/Pico_templo.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 242.114 )
+
+[node name="Pico" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 4.76837e-07, 0 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"enemigo",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -20, 20, -20, 15, -17, 15, -17, 10, -15, 10, -15, 5, -12, 5, -12, 0, -10, 0, -10, -5, -7, -5, -7, -10, -5, -10, -5, -15, -2, -15, -2, -20, 2, -20, 2, -15, 5, -15, 5, -10, 7, -10, 7, -5, 10, -5, 10, 0, 12, 0, 12, 5, 15, 5, 15, 10, 17, 10, 17, 15, 20, 15, 20, 20, -20, 20 )
+
+[node name="Area2D_Trampa" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Trampa"]
+shape = SubResource( 1 )
+
+[node name="Ray_izq" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Ray_der" type="RayCast2D" parent="."]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

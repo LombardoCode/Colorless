@@ -19,7 +19,6 @@
 [ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=18]
 
-
 [node name="Node" type="Node" groups=[
 "arrival",
 ]]
@@ -33,6 +32,8 @@ z_index = -1
 
 [node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 12 )]
 limit_right = 1520
+smoothing_speed = 5.0
+drag_margin_bottom = 0.2
 
 [node name="TileMap_castle" type="TileMap" parent="."]
 scale = Vector2( 2.5, 2.5 )

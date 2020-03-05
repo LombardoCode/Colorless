@@ -20,7 +20,6 @@
 [ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=19]
 
-
 [node name="Node" type="Node" groups=[
 "arrival",
 ]]
@@ -71,7 +70,7 @@ format = 1
 stream = ExtResource( 9 )
 
 [node name="Meta_portal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1200, 570 )
+position = Vector2( 1201.05, 570 )
 
 [node name="Meta" parent="Meta_portal" index="1"]
 escena_target = "res://Escenas/Niveles/Nivel15.tscn"
@@ -115,8 +114,8 @@ direccion = -1.0
 [node name="Pico2" parent="Picos" instance=ExtResource( 6 )]
 position = Vector2( 780, 580 )
 b_mov_h = true
-desplazamiento = 300.0
-direccion = 1.0
+desplazamiento = 200.0
+direccion = -1.0
 
 [node name="Pico3" parent="Picos" instance=ExtResource( 6 )]
 position = Vector2( 620, 420 )

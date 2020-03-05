@@ -18,7 +18,6 @@
 [ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=19]
 
-
 [node name="Node" type="Node" groups=[
 "arrival",
 ]]
@@ -88,6 +87,7 @@ escena_target = "res://Escenas/Interfaz.tscn"
 [node name="Fade" parent="Interfaz" instance=ExtResource( 19 )]
 
 [node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Fondo_cielo_azul" parent="." instance=ExtResource( 16 )]
 

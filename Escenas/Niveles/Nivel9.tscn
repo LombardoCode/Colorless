@@ -20,7 +20,6 @@
 [ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=19]
 
-
 [node name="Node" type="Node" groups=[
 "arrival",
 ]]
@@ -34,7 +33,8 @@ z_index = -1
 
 [node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 17 )]
 limit_right = 1800
-smoothing_speed = 1.0
+smoothing_speed = 5.0
+drag_margin_bottom = 0.2
 
 [node name="TileMap_castle" type="TileMap" parent="."]
 scale = Vector2( 2.5, 2.5 )

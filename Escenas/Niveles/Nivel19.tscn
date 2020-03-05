@@ -33,7 +33,6 @@ scale = Vector2( 0.42, 0.42 )
 z_index = -1
 
 [node name="Camera_siguiendo" parent="Personaje" instance=ExtResource( 4 )]
-limit_top = -920
 limit_right = 3000
 smoothing_speed = 2.0
 
@@ -134,12 +133,6 @@ position = Vector2( 460, 660 )
 
 [node name="Salto_extra" parent="Saltos_extra" instance=ExtResource( 20 )]
 position = Vector2( 320, 400 )
-
-[node name="Salto_extra2" parent="Saltos_extra" instance=ExtResource( 20 )]
-position = Vector2( 680, 420 )
-
-[node name="Salto_extra4" parent="Saltos_extra" instance=ExtResource( 20 )]
-position = Vector2( 800, 420 )
 
 [node name="Picos_giratorios" type="Node" parent="."]
 
