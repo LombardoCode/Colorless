@@ -127,15 +127,17 @@ margin_right = 1280.0
 margin_bottom = 552.0
 custom_constants/separation = 31
 
-[node name="Button" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer" groups=[
+"btn_nuevo_juego",
+]]
 margin_right = 1280.0
 margin_bottom = 44.0
 rect_pivot_offset = Vector2( 512, 22 )
 theme = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
-text = "Iniciar"
+text = "Nuevo juego"
 script = ExtResource( 3 )
-escena_target = "res://Escenas/Niveles/Nivel1.tscn"
+escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button"]
 autoplay = "rotacion_leve"
@@ -146,17 +148,18 @@ anims/rotacion_leve = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="Interfaz/VBoxContainer/VBoxContainer/Button"]
 
-[node name="Button2" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer" groups=[
+"btn_continuar",
+]]
 margin_top = 75.0
 margin_right = 1280.0
 margin_bottom = 119.0
 rect_pivot_offset = Vector2( 512, 22 )
 theme = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
-disabled = true
 text = "Continuar"
 script = ExtResource( 3 )
-escena_target = "res://Escenas/Niveles/Nivel1.tscn"
+escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button2"]
 autoplay = "rotacion_leve"

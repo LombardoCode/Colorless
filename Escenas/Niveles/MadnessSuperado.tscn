@@ -24,6 +24,7 @@
 ]]
 script = ExtResource( 2 )
 nombre_nivel = "Nivel 30 / 30"
+nivel = "final_madness"
 
 [node name="Personaje" parent="." instance=ExtResource( 8 )]
 position = Vector2( 80, 600 )
@@ -102,6 +103,7 @@ escena_target = "res://Escenas/Interfaz.tscn"
 [node name="Fade" parent="Interfaz" instance=ExtResource( 12 )]
 
 [node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Animacion_nivel" parent="." instance=ExtResource( 6 )]
 

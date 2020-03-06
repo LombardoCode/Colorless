@@ -6,6 +6,15 @@ var tipo_ease = Tween.EASE_IN_OUT
 var tiempo_tween = 1.5
 var posicion_inicial
 
+var portal_mundo = preload("res://Escenas/Items/Meta/Portal_mundo.tscn")
+
+var escenas_target_lista = {
+	"hacia_wisdom" : "res://Escenas/Niveles/Nivel11.tscn",
+	"hacia_madness" : "res://Escenas/Niveles/Nivel21.tscn",
+	"hacia_final" : "res://Escenas/Niveles/Escena_final.tscn"
+}
+
+
 func _ready():
 	# Conectamos el Area2D de la piel recolectable
 	$Area2D.connect("body_entered", self, "entro_player")
@@ -33,4 +42,36 @@ func entro_player(body):
 		body.celebrando = true
 		self.queue_free()
 		Global.animacion_flash.flashear()
-	pass
+		
+		# Instanciamos el portal
+		var portal_mundo_nuevo = portal_mundo.instance()
+		get_node("/root/Node").add_child(portal_mundo_nuevo)
+		portal_mundo_nuevo.position = Vector2(1100, 500)
+		var nodo_arbol = get_node("/root/Node")
+		if portal_mundo_nuevo.has_node("Meta"):
+			if nodo_arbol.is_in_group("arrival"):
+				# Determinamos el primer nivel del mundo mundo
+				portal_mundo_nuevo.get_node("Meta").escena_target = escenas_target_lista.hacia_wisdom
+				
+				# Le cambiamos la piel al jugador
+				var datos_nuevos = SavingSystem.leer_datos()
+				datos_nuevos.pieles.piel1 = true
+				SavingSystem.guardar_datos(datos_nuevos)
+				
+			if nodo_arbol.is_in_group("wisdom"):
+				# Determinamos el primer nivel del mundo mundo
+				portal_mundo_nuevo.get_node("Meta").escena_target = escenas_target_lista.hacia_madness
+				
+				# Le cambiamos la piel al jugador
+				var datos_nuevos = SavingSystem.leer_datos()
+				datos_nuevos.pieles.piel2 = true
+				SavingSystem.guardar_datos(datos_nuevos)
+				
+			if nodo_arbol.is_in_group("madness"):
+				# Determinamos la escena final del videojuego
+				portal_mundo_nuevo.get_node("Meta").escena_target = escenas_target_lista.hacia_final
+				
+				# Le cambiamos la piel al jugador
+				var datos_nuevos = SavingSystem.leer_datos()
+				datos_nuevos.pieles.piel3 = true
+				SavingSystem.guardar_datos(datos_nuevos)

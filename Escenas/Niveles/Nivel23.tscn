@@ -29,6 +29,7 @@ extents = Vector2( 16.7371, 200 )
 ]]
 script = ExtResource( 1 )
 nombre_nivel = "Nivel 23 / 30"
+nivel = "23"
 
 [node name="Personaje" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 520 )

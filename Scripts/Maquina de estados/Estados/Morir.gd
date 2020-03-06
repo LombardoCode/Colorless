@@ -13,6 +13,10 @@ func enter():
 	# Le quitamos su máscara de colisiones
 	if owner.has_node("CollisionShape2D"):
 		owner.get_node("CollisionShape2D").queue_free()
+	# Le quitamos su Area2D, de modo que no pueda morir una vez que el jugador muere
+	# Con esto se evita que el jugador se quede atrapado en loops (repeticiones) al morir
+	if owner.has_node("Area2D"):
+		owner.get_node("Area2D").queue_free()
 	
 	# Desactivamos su máquina de estados
 	.activar_estado(false)
@@ -38,6 +42,8 @@ func enter():
 	timer.start()
 	#get_node("/root/Node/Personaje").call_deferred("add_child", particula_muerte)
 	#print(get_parent().get_parent().get_name())
+	
+	
 	
 	
 	

@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Recursos/Sprites/Portales/Portal_blanco_outline.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Items/Portal_mundo.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Items/Meta/TransicionCanvas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Items/Portal_giratorio.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0.25, 1, 1, 0.105735, 0.0397339, 0.484375, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.512658, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+angular_velocity = -99.31
+orbit_velocity = 2.0
+orbit_velocity_random = 1.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = -100.0
+scale = 10.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 24.8078, 25.5222 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.0253165, 1 )
+colors = PoolColorArray( 0.0491943, 0.36198, 0.484375, 1, 0.139069, 0, 0.574219, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+orbit_velocity = 2.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = -100.0
+scale = 5.0
+scale_random = 0.57
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+hue_variation = 0.04
+hue_variation_random = 0.7
+
+[node name="Portal_mundo" type="Node2D" groups=[
+"portal_mundo",
+]]
+scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 50
+lifetime = 1.2
+speed_scale = 0.6
+process_material = SubResource( 5 )
+
+[node name="Meta" type="Sprite" parent="."]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Meta"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta/Area2D"]
+shape = SubResource( 11 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+amount = 50
+lifetime = 1.2
+speed_scale = 0.6
+process_material = SubResource( 10 )
+
+[node name="TransicionCanvas" parent="." instance=ExtResource( 3 )]
+[connection signal="body_entered" from="Meta/Area2D" to="Meta" method="_on_Area2D_body_entered"]
