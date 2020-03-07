@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Interfaz.gd" type="Script" id=1]
 [ext_resource path="res://Recursos/Fuentes/LexendDeca-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/Boton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Salir.gd" type="Script" id=4]
 [ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Recursos/Sprites/Logo/Colorless.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Logo_rotatorio.gd" type="Script" id=8]
+[ext_resource path="res://Escenas/Items_frontend/Menu/Menu_piso.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -187,14 +189,21 @@ anims/rotacion_leve = SubResource( 7 )
 
 [node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/VBoxContainer/Button3"]
 
+[node name="Menu_piso" parent="Interfaz" instance=ExtResource( 9 )]
+position = Vector2( 0, 600 )
+
 [node name="Fade" parent="Interfaz" instance=ExtResource( 5 )]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Interfaz"]
-margin_right = 765.0
-margin_bottom = 92.0
+margin_left = 1.948
+margin_top = -1.94801
+margin_right = 766.948
+margin_bottom = 90.052
 custom_fonts/normal_font = SubResource( 8 )
 text = "COLORLESS - [PROTOTIPO] - v0.0.2
 Desarrollado por: Lombardo Moreno Rodríguez (al0-2863940)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fondo_cielo_azul" parent="." instance=ExtResource( 6 )]

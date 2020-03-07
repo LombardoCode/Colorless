@@ -66,7 +66,7 @@ func update(delta):
 	pass
 	
 	# Si el jugador cae del mundo, que muera y que se reinicie el nivel
-	if owner.position.y > Global.obtener_tamanio_ventana().y + 50:
+	if owner.position.y > Global.obtener_tamanio_ventana().y + 150:
 		#Global.animacion_nivel.crecer()
 		if !muerte:
 			Global.animacion_nivel.crecer()

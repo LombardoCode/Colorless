@@ -78,8 +78,8 @@ func _ready():
 func _process(delta):
 	tiempo_antes_del_proximo_salto -= delta
 	# Limitamos la gravedad
-	if motion.y > 500:
-		motion.y = 500
+	if motion.y > 400: #500
+		motion.y = 400
 	
 	#prueba.text = "Gravedad: " + str(self.motion.y)
 	#prueba.text = "Gravedad: " + str(self.tiempo_antes_del_proximo_salto)
