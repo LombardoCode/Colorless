@@ -9,6 +9,9 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.get_name() == "Personaje":
 		if funcionalidad:
+			# Reproducimos el sonido cuando el player colecciona este item
+			$SFX_Salto_extra.play()
+			
 			#Global.personaje.puede_saltar = true
 			#body.puede_saltar = true
 			#Global.personaje.doble_salto = true

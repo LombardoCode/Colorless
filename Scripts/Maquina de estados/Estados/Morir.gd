@@ -6,6 +6,9 @@ var escena_particula_muerte = preload("res://Escenas/Items/Particulas/ParticulaM
 var particula_muerte
 
 func enter():
+	# Reproducimos el sonido de muerte provocada por picos
+	owner.get_node("SFX_Muerte_pico").play()
+	
 	# Conectamos la señal del Area2D del jugador
 	if !owner.get_node("Area2D").is_connected("area_entered", self, "_area_entro"):
 		owner.get_node("Area2D").connect("area_entered", self, "_area_entro")

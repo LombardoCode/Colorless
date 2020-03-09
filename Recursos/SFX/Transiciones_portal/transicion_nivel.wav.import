@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/transicion_nivel.wav-4e20cf18769a4e5adeea31aa925750d6.sample"
+
+[deps]
+
+source_file="res://Recursos/SFX/Transiciones_portal/transicion_nivel.wav"
+dest_files=[ "res://.import/transicion_nivel.wav-4e20cf18769a4e5adeea31aa925750d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

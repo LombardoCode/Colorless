@@ -34,23 +34,23 @@ scale = 10.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24.8078, 25.5222 )
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0.0253165, 1 )
 colors = PoolColorArray( 0.0491943, 0.36198, 0.484375, 1, 0.139069, 0, 0.574219, 1 )
 
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=9]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=9]
-curve = SubResource( 8 )
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=11]
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_disable_z = true
@@ -65,8 +65,8 @@ radial_accel_random = 1.0
 tangential_accel = -100.0
 scale = 5.0
 scale_random = 0.57
-scale_curve = SubResource( 9 )
-color_ramp = SubResource( 7 )
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )
 hue_variation = 0.04
 hue_variation_random = 0.7
 
@@ -96,13 +96,13 @@ __meta__ = {
 [node name="Area2D" type="Area2D" parent="Meta"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta/Area2D"]
-shape = SubResource( 11 )
+shape = SubResource( 6 )
 
 [node name="Particles2D2" type="Particles2D" parent="."]
 amount = 50
 lifetime = 1.2
 speed_scale = 0.6
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 
 [node name="TransicionCanvas" parent="." instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Meta/Area2D" to="Meta" method="_on_Area2D_body_entered"]

@@ -23,15 +23,15 @@ func _on_Area2D_body_entered(body):
 	# Leemos la información actual en el archivo .txt de la partida
 	var datos_a_guardar = SavingSystem.leer_datos()
 	
-	print(typeof(nodo_arbol_nivel))
-	
 	# Si el área en el que colisiono el jugador pertenece a uno de
 	# los dos portales que existen (el de nivel y el de mundo)
 	# que guarde los datos
 	var portal_grupo = self.get_node("../")
 	if portal_grupo.is_in_group("meta_portal"):
-		print("Si entró")
-		print(portal_grupo.get_groups())
+		# Si la entidad que atravesó el area es el jugador...
+		if body == Global.personaje:
+			# Que se reproduzca el sonido del portal
+			Global.reproducir_audio_portal_nivel()
 		# Validamos el nivel que fué realizado para que posteriormente lo guarde
 		# ~ Arrival ~
 		if nodo_arbol_nivel == "1": datos_a_guardar.niveles.nivel_2 = true
@@ -71,6 +71,11 @@ func _on_Area2D_body_entered(body):
 		
 		# Le pasamos el JSON para que guarde los datos
 		SavingSystem.guardar_datos(datos_a_guardar)
+	if portal_grupo.is_in_group("portal_mundo"):
+		# Si la entidad que atravesó el area es el jugador...
+		if body == Global.personaje:
+			# Que se reproduzca el sonido del portal
+			Global.reproducir_audio_portal_mundo()
 	else:
 		print("El area pertenece a otro grupo")
 		portal_grupo.get_groups()

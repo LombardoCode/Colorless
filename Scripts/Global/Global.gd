@@ -17,10 +17,27 @@ var lista_de_canciones = {
 	madness = "res://Recursos/Musica/Madness/Madness.ogg"
 }
 
+var lista_de_sonidos = {
+	transicion_nivel = "res://Recursos/SFX/Transiciones_portal/transicion_nivel.wav",
+	transicion_mundo = "res://Recursos/SFX/Transiciones_portal/transicion_mundo.wav",
+	repetir_nivel = "res://Recursos/SFX/repetir_nivel.wav",
+	repetir_nivel_reverseado = "res://Recursos/SFX/repetir_nivel_reverseado.wav"
+}
+
 var nodo_arbol
 
+var audio_portal
+var audio_repetir_nivel
 
 func _ready():
+	# Creamos un AudioStreamPlayer para los sonidos de los dos portales
+	audio_portal = AudioStreamPlayer.new()
+	add_child(audio_portal)
+	
+	audio_repetir_nivel = AudioStreamPlayer.new()
+	add_child(audio_repetir_nivel)
+	
+	# Reproducimos automaticamente la canción dependiendo del tipo de grupo en el que esté el nodo
 	reproducir_musica()
 	set_process(true)
 
@@ -100,3 +117,27 @@ func animacion_finalizada(anim_name, escena_target):
 func obtener_tamanio_ventana():
 	screen_size = get_viewport().get_visible_rect().size
 	return screen_size
+
+func reproducir_audio_portal_nivel():
+	var cancion_a_reproducir = load(lista_de_sonidos.transicion_nivel)
+	audio_portal.stream = cancion_a_reproducir
+	audio_portal.play()
+
+func reproducir_audio_portal_mundo():
+	var cancion_a_reproducir = load(lista_de_sonidos.transicion_mundo)
+	audio_portal.stream = cancion_a_reproducir
+	audio_portal.play()
+
+func reproducir_audio_repetir_nivel():
+	var cancion_a_reproducir = load(lista_de_sonidos.repetir_nivel)
+	audio_repetir_nivel.stream = cancion_a_reproducir
+	audio_repetir_nivel.volume_db = 5
+	audio_repetir_nivel.pitch_scale = 1.2
+	audio_repetir_nivel.play()
+
+func reproducir_audio_repetir_nivel_reverseado():
+	var cancion_a_reproducir = load(lista_de_sonidos.repetir_nivel_reverseado)
+	audio_repetir_nivel.stream = cancion_a_reproducir
+	audio_repetir_nivel.volume_db = 0
+	audio_repetir_nivel.pitch_scale = 1.2
+	audio_repetir_nivel.play()

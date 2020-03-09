@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/transicion_mundo.wav-fbbe83a577f96134e7793e2dfd7bbeab.sample"
+
+[deps]
+
+source_file="res://Recursos/SFX/Transiciones_portal/transicion_mundo.wav"
+dest_files=[ "res://.import/transicion_mundo.wav-fbbe83a577f96134e7793e2dfd7bbeab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

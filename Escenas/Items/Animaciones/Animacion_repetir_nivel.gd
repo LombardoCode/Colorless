@@ -38,12 +38,18 @@ func crecer():
 	tween.interpolate_property(self, "rect_rotation", 0, 200, 0.8, Tween.TRANS_SINE, Tween.EASE_IN)
 	tween.start()
 	accion = "reiniciar"
+	
+	# Reproducimos el sonido cuando repites un nivel
+	Global.reproducir_audio_repetir_nivel()
 
 
 func decrecer():
 	tween.interpolate_property(self, "rect_size", Vector2(2000, 2000), Vector2(0, 0), 0.8, Tween.TRANS_QUAD, Tween.EASE_IN)
 	tween.interpolate_property(self, "rect_rotation", 200, 0, 0.8, Tween.TRANS_SINE, Tween.EASE_IN)
 	tween.start()
+	
+	# Reproducimos el sonido cuando repites un nivel
+	Global.reproducir_audio_repetir_nivel_reverseado()
 
 
 func reiniciar_nivel():

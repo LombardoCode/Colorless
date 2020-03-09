@@ -71,6 +71,9 @@ func update(delta):
 	if owner.position.y > Global.obtener_tamanio_ventana().y + 150:
 		#Global.animacion_nivel.crecer()
 		if !muerte:
+			# Reproducimos el sonido cuando el jugador cae al vacio
+			owner.get_node("SFX_Caida").play()
+			
 			Global.animacion_nivel.crecer()
 			muerte = true
 	

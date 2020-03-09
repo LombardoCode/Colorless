@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Caida.wav-3aa6498fbe71dd8883e23652a6b665f2.sample"
+path="res://.import/intro_1.wav-809692a383f732343f2199d60944708a.sample"
 
 [deps]
 
-source_file="res://Recursos/SFX/Personaje/Caida.wav"
-dest_files=[ "res://.import/Caida.wav-3aa6498fbe71dd8883e23652a6b665f2.sample" ]
+source_file="res://Recursos/SFX/Intro/intro_1.wav"
+dest_files=[ "res://.import/intro_1.wav-809692a383f732343f2199d60944708a.sample" ]
 
 [params]
 
