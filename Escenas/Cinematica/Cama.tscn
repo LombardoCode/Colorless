@@ -5,19 +5,19 @@
 [ext_resource path="res://Scripts/Cinematica/Cama_ojos.gd" type="Script" id=3]
 [ext_resource path="res://Recursos/Sprites/Cinematicas/Z_dormir.png" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0.420635, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.655682 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 gravity = Vector3( 0, -98, 0 )
 initial_velocity = 20.0
@@ -26,8 +26,8 @@ angular_velocity = -10.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="Cama" type="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -46,5 +46,5 @@ position = Vector2( 44, -184 )
 amount = 2
 lifetime = 1.5
 speed_scale = 0.5
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 4 )

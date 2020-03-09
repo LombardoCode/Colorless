@@ -55,7 +55,7 @@ func abrir_dialogo():
 	timer = Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self, "_tiempo_agotado")
-	timer.wait_time = 0.8
+	timer.wait_time = 0.0
 	timer.one_shot = false
 	timer.start()
 	
@@ -83,7 +83,17 @@ func _tween_cerrar_completado(object, key):
 		rich_label.index += 1
 		
 		if rich_label.index == 1:
+			print("Numero 1")
 			timer.wait_time = 7.0
+		if rich_label.index == 2:
+			print("Numero 2")
+			timer.wait_time = 3.0
+		if rich_label.index == 3:
+			timer.wait_time = 5.0
+			print("Numero 3")
+		if rich_label.index == 4:
+			timer.wait_time = 5.0
+			print("Numero 4")
 		timer.start()
 	#abrir_dialogo()
 	

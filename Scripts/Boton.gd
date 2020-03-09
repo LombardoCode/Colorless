@@ -41,13 +41,13 @@ func _presionado():
 			SavingSystem.eliminar_partida()
 			
 			# Creamos un save fresco
-			var datos_partida_frescos = SavingSystem.datos_a_guardar
+			#var datos_partida_frescos = SavingSystem.datos_a_guardar
 			
 			# Habilitamos el nivel 1 del videojuego
-			datos_partida_frescos.niveles.nivel_1 = true
+			#datos_partida_frescos.niveles.nivel_1 = true
 			
 			# Guardamos los datos
-			SavingSystem.guardar_datos(datos_partida_frescos)
+			#SavingSystem.guardar_datos(datos_partida_frescos)
 			
 	if self.is_in_group("btn_continuar"):
 		if !SavingSystem.existe_archivo_partida():

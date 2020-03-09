@@ -47,10 +47,12 @@ func update(delta):
 		owner.motion.y += owner.GRAVEDAD * delta
 		
 		if Input.is_action_just_pressed("tecla_w") and owner.puede_saltar:
+			owner.get_node("SFX_Salto").play()
 			emit_signal("terminado", "Saltar")
 			
 		if Input.is_action_just_pressed("tecla_w") and owner.doble_salto:
 			#emit_signal("terminado", "Saltar")
+			owner.get_node("SFX_Salto").play()
 			owner.motion.y = -owner.VELOCIDAD_SALTO_MAX
 			owner.doble_salto = false
 			owner.saltando_doble = true

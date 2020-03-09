@@ -5,6 +5,7 @@ var tipo_tween = Tween.TRANS_SINE
 var tipo_ease = Tween.EASE_IN_OUT
 var tiempo_tween = 1.5
 var posicion_inicial
+export(float) var retardo
 
 var portal_mundo = preload("res://Escenas/Items/Meta/Portal_mundo.tscn")
 
@@ -24,7 +25,7 @@ func _ready():
 	
 	# Conectamos, interpolamos e iniciamos el Tween
 	$Tween.connect("tween_completed", self, "tween_completado")
-	$Tween.interpolate_property(self, "position", self.get_position(), self.get_position() -Vector2(0, desplazamiento), tiempo_tween, tipo_tween, tipo_ease)
+	$Tween.interpolate_property(self, "position", self.get_position(), self.get_position() -Vector2(0, desplazamiento), tiempo_tween, tipo_tween, tipo_ease, retardo)
 	$Tween.start()
 	pass
 

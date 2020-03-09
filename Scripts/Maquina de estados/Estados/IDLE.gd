@@ -51,6 +51,7 @@ func update(delta):
 		if owner.motion.y > 0:
 			emit_signal("terminado", "Caerse")
 		elif owner.motion.y < 0:
+			owner.get_node("SFX_Salto").play()
 			emit_signal("terminado", "Saltar")
 	
 	# Verificamos constantemente si el jugador ha tocado la piel para poder celebrar y pasar al siguiente mundo

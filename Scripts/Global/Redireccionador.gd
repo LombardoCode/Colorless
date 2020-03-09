@@ -1,11 +1,50 @@
 extends Node
 
 var datos_obtenidos
+var timer
+var tiempo_desde = 2
+var tiempo_hasta = 3.4
+var tiempo_aleatorio
+var tiempo_transcurrido = 0
+var animacion_cambiada = false
+onready var fade_in = $Interfaz/Fade_in/AnimationPlayer
 
 func _ready():
 	# Obtenemos los datos actuales de nuestra partida
 	datos_obtenidos = SavingSystem.leer_datos()
 	
+	randomize()
+	#var tiempo_aleatorio = rand_range(1.5, 3.0)
+	tiempo_aleatorio = rand_range(tiempo_desde, tiempo_hasta)
+	print("Tiempo aleatorio: " + str(tiempo_aleatorio))
+	
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = tiempo_aleatorio
+	timer.start()
+	
+	set_process(true)
+
+func _process(delta):
+	tiempo_transcurrido += delta
+	
+	if ((tiempo_transcurrido > (tiempo_aleatorio - 0.5)) and (tiempo_transcurrido < tiempo_aleatorio)) and !animacion_cambiada:
+		fade_out()
+
+func fade_out():
+	if !animacion_cambiada:
+		animacion_cambiada = true
+		fade_in.connect("animation_finished", self, "_animacion_terminada")
+		fade_in.play("fade_in")
+
+func _animacion_terminada(anim_name):
+	if anim_name == "fade_in":
+		_tiempo_agotado()
+
+func _tiempo_agotado():
+	redireccionar_a_nivel()
+
+func redireccionar_a_nivel():
 	# ~ Madness (Tercer mundo de Colorless) ~
 	if datos_obtenidos.niveles.final_madness == true:
 		return get_tree().change_scene("res://Escenas/Niveles/MadnessSuperado.tscn")

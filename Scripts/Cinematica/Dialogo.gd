@@ -5,8 +5,9 @@ var index = 0
 var dialogos = [
 	"En una noche tan pacifica y tan tranquila como la de hoy... nuestro héroe, Cuby, se encuentra descansando.",
 	"Parece que ha sido un largo día para nuestro amigo.",
-	"que cantaba",
-	"el rey David"
+	"Todo parecía indicar una noche tranquila, hasta que derrepente...",
+	"¡OH NO!\n¡Una entidad maligna quiere dañar a Cuby!",
+	"¡Se acaban de robar las pieles de Cuby!\n¡Seguramente las esconderá!\n¡Hay que avisarle a Cuby!"
 ]
 
 

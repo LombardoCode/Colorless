@@ -139,7 +139,7 @@ theme = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 text = "Nuevo juego"
 script = ExtResource( 3 )
-escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
+escena_target = "res://Escenas/Niveles/Cinematica_inicio.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button"]
 autoplay = "rotacion_leve"
