@@ -1,23 +1,17 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=1]
 [ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=4]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=5]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=6]
+[ext_resource path="res://Escenas/Items_frontend/HUD/Interfaz.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=7]
-[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=8]
 [ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=10]
-[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=15]
-[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=18]
 
 [node name="Node" type="Node" groups=[
 "arrival",
@@ -87,30 +81,7 @@ position = Vector2( 960, 480 )
 
 [node name="Fondo_cielo_azul" parent="." instance=ExtResource( 17 )]
 
-[node name="Interfaz" type="CanvasLayer" parent="."]
-
-[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -88.0
-margin_top = 16.0
-margin_bottom = 200.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 10 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-escena_target = "res://Escenas/Interfaz.tscn"
-
-[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
-
-[node name="Fade" parent="Interfaz" instance=ExtResource( 11 )]
-
-[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 18 )]
-
-[node name="Animacion_nivel" parent="." instance=ExtResource( 16 )]
+[node name="Interfaz" parent="." instance=ExtResource( 5 )]
+nivel = "Nivel 05 / 30"
 
 [editable path="Meta_portal"]

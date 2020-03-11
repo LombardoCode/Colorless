@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/Personaje.gd" type="Script" id=1]
 [ext_resource path="res://Recursos/Sprites/Lombardo/IDLE/0/spr_lombardo_0_IDLE_1.png" type="Texture" id=2]
@@ -29,47 +29,14 @@
 [ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/100/spr_lombardo_100_corriendo_0.png" type="Texture" id=27]
 [ext_resource path="res://Recursos/Sprites/Lombardo/Corriendo/100/spr_lombardo_100_corriendo_1.png" type="Texture" id=28]
 [ext_resource path="res://Recursos/SFX/Personaje/muerte_pico.wav" type="AudioStream" id=29]
+[ext_resource path="res://Scripts/Maquina de estados/Estados/Caminata_final.gd" type="Script" id=30]
+[ext_resource path="res://Recursos/SFX/piel_obtenida.wav" type="AudioStream" id=31]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "IDLE_66",
-"speed": 1.4
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Corriendo_0",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Caminando_0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "Corriendo_33",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "IDLE_100",
-"speed": 1.4
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "IDLE_0",
-"speed": 1.4
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "Corriendo_66",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "IDLE_33",
 "speed": 1.4
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
@@ -77,20 +44,55 @@ animations = [ {
 "name": "Corriendo_100",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "Caminando_100",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Caminando_0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "IDLE_66",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Corriendo_33",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "IDLE_33",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Caminando_66",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Corriendo_66",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "Caminando_33",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
-"name": "Caminando_66",
-"speed": 5.0
+"name": "IDLE_100",
+"speed": 1.4
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Corriendo_0",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -129,6 +131,9 @@ script = ExtResource( 15 )
 
 [node name="Celebrando" type="Node" parent="MaquinaDeEstados"]
 script = ExtResource( 16 )
+
+[node name="Caminata_final" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource( 30 )
 
 [node name="Puede_saltar" type="RichTextLabel" parent="."]
 margin_left = -80.0
@@ -187,7 +192,7 @@ cast_to = Vector2( 0, 58.696 )
 
 [node name="SFX_Salto" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = 16.0
+volume_db = 10.0
 
 [node name="SFX_Caida" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
@@ -196,6 +201,9 @@ volume_db = -5.0
 [node name="SFX_Muerte_pico" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
 volume_db = 12.0
+
+[node name="SFX_piel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
 
 [node name="Tween" type="Tween" parent="."]
 

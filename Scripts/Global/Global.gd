@@ -7,14 +7,19 @@ var transicion
 # Animaciones
 var animacion_nivel # Animación cuando inicia un nuevo nivel
 var animacion_flash # Animación que se reproduce cada vez que el jugador consigue una piel nueva
+var contador_de_muertes
+var btn_volver
 
 # Música
+var audioStreamPlayer
+var cancion_cinematica
 var lista_de_canciones = {
 	menu_principal = "res://Recursos/Musica/Menu/menu.ogg",
 	tutorial = "res://Recursos/Musica/Tutorial/Tutorial.ogg",
 	arrival = "res://Recursos/Musica/Arrival/Arrival.ogg",
 	wisdom = "res://Recursos/Musica/Wisdom/Wisdom.ogg",
-	madness = "res://Recursos/Musica/Madness/Madness.ogg"
+	madness = "res://Recursos/Musica/Madness/Madness.ogg",
+	creditos = "res://Recursos/Musica/Creditos/Creditos.ogg",
 }
 
 var lista_de_sonidos = {
@@ -30,6 +35,10 @@ var audio_portal
 var audio_repetir_nivel
 
 func _ready():
+	# Creamos un audio global
+	audioStreamPlayer = AudioStreamPlayer.new()
+	audioStreamPlayer.volume_db = -80
+	
 	# Creamos un AudioStreamPlayer para los sonidos de los dos portales
 	audio_portal = AudioStreamPlayer.new()
 	add_child(audio_portal)
@@ -45,7 +54,7 @@ func _ready():
 func reproducir_musica():
 	if !get_node("/root/Global").has_node("Musica"):
 		# Creamos un AudioStreamPlayer dinámicamente y lo agregamos al nodo de Global
-		var audioStreamPlayer = AudioStreamPlayer.new()
+		
 		audioStreamPlayer.set_name("Musica")
 		add_child(audioStreamPlayer)
 		
@@ -88,6 +97,10 @@ func obtenerAudioCorrespondiente():
 		return load(lista_de_canciones.wisdom)
 	elif nodo_arbol.is_in_group("madness"):
 		return load(lista_de_canciones.madness)
+	elif nodo_arbol.is_in_group("creditos"):
+		return load(lista_de_canciones.creditos)
+	else:
+		return 
 
 
 func _process(_delta):
@@ -141,3 +154,7 @@ func reproducir_audio_repetir_nivel_reverseado():
 	audio_repetir_nivel.volume_db = 0
 	audio_repetir_nivel.pitch_scale = 1.2
 	audio_repetir_nivel.play()
+
+
+func obtener_audio_global():
+	return audioStreamPlayer

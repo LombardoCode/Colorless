@@ -76,7 +76,4 @@ func _on_Area2D_body_entered(body):
 		if body == Global.personaje:
 			# Que se reproduzca el sonido del portal
 			Global.reproducir_audio_portal_mundo()
-	else:
-		print("El area pertenece a otro grupo")
-		portal_grupo.get_groups()
 	

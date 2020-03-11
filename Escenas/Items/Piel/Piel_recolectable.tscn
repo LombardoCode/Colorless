@@ -1,13 +1,57 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Recursos/Sprites/Piel/Piel_recolectable.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Coleccionables/Piel/Piel_recolectable.gd" type="Script" id=2]
+[ext_resource path="res://Recursos/SFX/piel_obtenida.wav" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.0470588, 0.509804, 1, 1, 0.115173, 0.180996, 0.265625, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 6.49
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.1
+orbit_velocity_random = 0.0
+radial_accel = 44.78
+angle = 558.8
+angle_random = 0.87
+scale = 12.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 13, 45 )
 
 [node name="Piel_recolectable" type="StaticBody2D"]
 script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, 40 )
+amount = 22
+process_material = SubResource( 3 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 0, 20 )
+amount = 22
+process_material = SubResource( 3 )
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+amount = 22
+process_material = SubResource( 3 )
+
+[node name="Particles2D4" type="Particles2D" parent="."]
+position = Vector2( 0, -20 )
+amount = 22
+process_material = SubResource( 3 )
+
+[node name="Particles2D5" type="Particles2D" parent="."]
+position = Vector2( 0, -40 )
+amount = 22
+process_material = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
@@ -18,6 +62,9 @@ texture = ExtResource( 1 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="SFX_piel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

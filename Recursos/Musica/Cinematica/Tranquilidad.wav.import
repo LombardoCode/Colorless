@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Tranquilidad.wav-382a84a98437f3a0f9d8cfc794053d30.sample"
+
+[deps]
+
+source_file="res://Recursos/Musica/Cinematica/Tranquilidad.wav"
+dest_files=[ "res://.import/Tranquilidad.wav-382a84a98437f3a0f9d8cfc794053d30.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

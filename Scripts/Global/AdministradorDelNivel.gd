@@ -3,13 +3,23 @@ extends Node
 var musica
 export (String) var nombre_nivel
 export (String) var nivel
+onready var nodo_arbol = get_node("/root/Node")
 
 func _ready():
-	# No sé si eliminarlo o no
+	# Verificamos si el audioStreamPlayer no está silenciado
+	var audioStreamPlayer = Global.obtener_audio_global()
+	if audioStreamPlayer.get_volume_db() < -20:
+		var tween_musica = Tween.new()
+		add_child(tween_musica)
+		tween_musica.interpolate_property(audioStreamPlayer, "volume_db", audioStreamPlayer.get_volume_db(), 0, 0.8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		tween_musica.start()
+	
+	# Reproducimos la canción correspondiente al nivel
 	Global.reproducir_musica()
 	
-	# Iniciamos le nivel con una animación de entrada
-	Global.animacion_nivel.decrecer()
+	if !nodo_arbol.is_in_group("creditos"):
+		# Iniciamos le nivel con una animación de entrada
+		Global.animacion_nivel.decrecer()
 	
 	# Indicador de niveles dentro del GameState
 	if get_node("Interfaz").has_node("Indicador_nivel/Texto_nivel"):

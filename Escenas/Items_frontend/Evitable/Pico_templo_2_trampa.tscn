@@ -40,6 +40,7 @@ enabled = true
 cast_to = Vector2( 0, 26 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_top = -40.0
 margin_right = 40.0
 margin_bottom = -26.0

@@ -22,6 +22,7 @@ var motion = Vector2()
 var area
 
 func _ready():
+	$Label.visible = false
 	# Activamos el Area2D
 	if self.has_node("Area2D_Trampa"):
 		$Area2D_Trampa.connect("body_entered", self, "_activar_trampa")

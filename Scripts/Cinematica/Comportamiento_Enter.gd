@@ -39,13 +39,25 @@ onready var casa = get_node("/root/Node/Casa")
 onready var piso_cesped = get_node("/root/Node/Menu_piso")
 onready var piso_madera = get_node("/root/Node/Piso_madera")
 onready var cama = get_node("/root/Node/Cama")
+onready var cama_sin_piel = get_node("/root/Node/Cama_sin_piel")
 onready var entidad_maligna = get_node("/root/Node/Entidad_maligna")
 onready var animacion_entidad_maligna = get_node("/root/Node/Entidad_maligna/AnimationPlayer")
 onready var camara_entidad_maligna = get_node("/root/Node/Entidad_maligna/Camera2D")
 
-# Escenas a instanciar
+# Canciones
+var canciones = {
+	tranquilidad = "res://Recursos/Musica/Cinematica/Tranquilidad.wav",
+	dark = "res://Recursos/Musica/Cinematica/Dark.wav"
+}
+
+# Tween para la canción
+var tween_cancion
 
 func _ready():
+	# Reproducimos la cnación de fondo
+	$Musica.stream = load(canciones.tranquilidad)
+	$Musica.play()
+	
 	# Aparecemos el fade inicial
 	fade.show()
 	
@@ -101,6 +113,13 @@ func _process(delta):
 					tween.start()
 				
 				if texto_dialogo.index == 2:
+					# Cambiamos la canción
+					tween_cancion = Tween.new()
+					add_child(tween_cancion)
+					tween_cancion.connect("tween_completed", self, "_cancion_silenciada", [tween_cancion])
+					tween_cancion.interpolate_property($Musica, "volume_db", $Musica.get_volume_db(), -80, 1.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+					tween_cancion.start()
+					
 					# Le asignamos un tiempo de espera al timer
 					timer.wait_time = 7.5
 					timer.start()
@@ -207,6 +226,10 @@ func _tween_completado_5(object, key):
 		tween.interpolate_property(camara, "rotation_degrees", camara_rotacion[0], camara_rotacion[1], 8.0, camara_tipo_tween, camara_tipo_ease, 0)
 		tween.start()
 		
+		# Realizamos el decremento del sonido de la canción actual
+		tween_cancion.interpolate_property($Musica, "volume_db", $Musica.get_volume_db(), -80, 5.0, Tween.TRANS_SINE, Tween.EASE_OUT, 1.0)
+		tween_cancion.start()
+		
 		# Creamos un timer para el fade-out final
 		var timer = Timer.new()
 		add_child(timer)
@@ -219,7 +242,7 @@ func _tween_completado_5(object, key):
 		piso_cesped.hide()
 		entidad_maligna.hide()
 		piso_madera.show()
-		cama.show()
+		cama_sin_piel.show()
 
 func _tween_completado_6(object, key):
 	pass
@@ -232,6 +255,8 @@ func _tiempo_agotado_fadeout(timer):
 	fade_out_final.get_node("AnimationPlayer").play("fade_out_final")
 	
 	fade_out_final.get_node("AnimationPlayer").connect("animation_finished", self, "_terminado_el_fade_out_final")
+	
+	
 
 func _terminado_el_fade_out_final(anim_name):
 	if anim_name == "fade_out_final":
@@ -245,3 +270,17 @@ func _terminado_el_fade_out_final(anim_name):
 		SavingSystem.guardar_datos(datos_partida_frescos)
 		
 		get_tree().change_scene(escena_target)
+
+func _cancion_silenciada(object, key, tween_cancion):
+	if tween_cancion.is_connected("tween_completed", self, "_cancion_silenciada"):
+		tween_cancion.disconnect("tween_completed", self, "_cancion_silenciada")
+		tween_cancion.interpolate_property($Musica, "volume_db", $Musica.get_volume_db(), 0, 1.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+		tween_cancion.start()
+		
+		# Silenciamos la canción global para cuando el jugador ingrese al primer nivel haya un
+		# fade-in en la música... el fade-in lo hace el Administrador de niveles
+		var audioStreamPlayer = Global.obtener_audio_global()
+		audioStreamPlayer.volume_db = -80
+		
+		$Musica.stream = load(canciones.dark)
+		$Musica.play()

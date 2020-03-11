@@ -16,8 +16,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Colorless - [Prototipo] - v0.0.3 - Lombardo Moreno Rodríguez (al0-2863940)"
-run/main_scene="res://Escenas/Interfaz.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Escenas/Niveles/Intro.tscn"
+boot_splash/image="res://Recursos/Sprites/Splashscreen/Splashscreen.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://Recursos/Sprites/Lombardo/IDLE/100/spr_lombardo_100_IDLE_0.png"
 
 [autoload]
 

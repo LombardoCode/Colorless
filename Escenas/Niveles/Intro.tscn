@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Recursos/Fuentes/Renogare-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Recursos/Fuentes/LexendDeca-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Intro/Intro.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "nombre"
+length = 8.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 2, 5.5, 7 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 2, 5.5, 7 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 2, 5.5, 7 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 2, 5.5, 7 )
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "subtitulo"
+length = 8.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 4, 5.5, 7 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 4, 5.5, 7 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 4, 5.5, 7 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3, 4, 5.5, 7 )
+}
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 298.0
+margin_right = 1280.0
+margin_bottom = 361.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "Lombardo Moreno Rodríguez"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/VBoxContainer/Label"]
+autoplay = "nombre"
+anims/nombre = SubResource( 2 )
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 365.0
+margin_right = 1280.0
+margin_bottom = 422.0
+custom_fonts/font = SubResource( 3 )
+text = "Presenta"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/VBoxContainer/Label2"]
+autoplay = "subtitulo"
+anims/subtitulo = SubResource( 4 )

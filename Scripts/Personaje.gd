@@ -48,6 +48,9 @@ var celebrando = false
 # Muerte
 var muerto = false
 
+# Pieles
+var piel_recolectada = false
+
 func _ready():
 	# Conectamos la señal del Area2D del jugador
 	if !self.get_node("Area2D").is_connected("area_entered", self, "_area_entro"):

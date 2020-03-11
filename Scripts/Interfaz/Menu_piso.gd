@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	var nodo_arbol = get_node("/root/Node")
 	if !nodo_arbol.is_in_group("cinematica"):
-		position.y = 600
+		position.y = 640
 		motion.x = -velocidad * delta
 		motion = move_and_slide(motion, Vector2(0, -1))
 		

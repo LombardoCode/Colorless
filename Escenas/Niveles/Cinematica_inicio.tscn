@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Recursos/Sprites/Cinematicas/Noche_degradado.jpg" type="Texture" id=1]
 [ext_resource path="res://Recursos/Sprites/Cinematicas/Casa.png" type="Texture" id=2]
@@ -15,17 +15,24 @@
 [ext_resource path="res://Recursos/Sprites/Cinematicas/Entidad_maligna.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/Coleccionables/Piel/Piel_recolectable.gd" type="Script" id=14]
 [ext_resource path="res://Recursos/Sprites/Piel/Piel_recolectable.png" type="Texture" id=15]
+[ext_resource path="res://Recursos/Sprites/Cinematicas/Cama_sin_piel.png" type="Texture" id=16]
+[ext_resource path="res://Recursos/Fuentes/Renogare-Regular.otf" type="DynamicFontData" id=17]
+[ext_resource path="res://Scripts/Interfaz/Saltar_cinematica.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/Cinematica/cancion_cinematica.gd" type="Script" id=19]
 
 [sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "fade_in"
+[sub_resource type="Animation" id=4]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -40,8 +47,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "fade_out_0_5"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -56,8 +62,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "fade_out_final"
+[sub_resource type="Animation" id=6]
 length = 1.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:color:r")
@@ -100,13 +105,56 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1.5 )
 }
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in_cinematica"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Curve" id=8]
 _data = [ Vector2( 0.944444, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_disable_z = true
@@ -116,10 +164,9 @@ orbit_velocity_random = 0.0
 radial_accel = 22.53
 radial_accel_random = 0.14
 scale = 0.2
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 9 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "acercandose_a_casa"
+[sub_resource type="Animation" id=11]
 length = 4.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:x")
@@ -142,8 +189,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4 )
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "adentrandose_a_casa"
+[sub_resource type="Animation" id=12]
 length = 6.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:x")
@@ -206,7 +252,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 1.1, 1.4, 2.5, 2.8 )
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 13, 45 )
 
 [node name="Node" type="Node" groups=[
@@ -227,6 +273,10 @@ texture = ExtResource( 12 )
 [node name="Cama" parent="." instance=ExtResource( 11 )]
 visible = false
 
+[node name="Cama_sin_piel" parent="." instance=ExtResource( 11 )]
+visible = false
+texture = ExtResource( 16 )
+
 [node name="Casa" type="Sprite" parent="."]
 position = Vector2( 640, 427 )
 scale = Vector2( 0.6, 0.6 )
@@ -236,6 +286,35 @@ texture = ExtResource( 2 )
 position = Vector2( 0, 600 )
 
 [node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="Saltar_cinematica" type="Node2D" parent="Interfaz"]
+script = ExtResource( 18 )
+escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
+
+[node name="Fondo_saltar" type="ColorRect" parent="Interfaz/Saltar_cinematica"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 853.0
+margin_top = 669.0
+margin_right = 1285.0
+margin_bottom = 727.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Interfaz/Saltar_cinematica"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 866.0
+margin_top = 678.0
+margin_right = 1266.0
+margin_bottom = 711.0
+custom_fonts/font = SubResource( 1 )
+text = "\"S\" para saltar cinemática"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="Interfaz"]
 anchor_right = 1.0
@@ -266,8 +345,8 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="Interfaz/ColorRect/MarginContainer"]
 margin_right = 1180.0
 margin_bottom = 150.0
-custom_fonts/normal_font = SubResource( 1 )
-text = "asdasd"
+custom_fonts/normal_font = SubResource( 2 )
+text = "Esto es un texto de ejemplo."
 scroll_active = false
 script = ExtResource( 5 )
 __meta__ = {
@@ -278,12 +357,15 @@ __meta__ = {
 margin_right = 1180.0
 margin_bottom = 150.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "[ ENTER ]"
 align = 2
 valign = 2
 script = ExtResource( 8 )
 escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
+
+[node name="Musica" type="AudioStreamPlayer" parent="Interfaz/ColorRect/MarginContainer/Label"]
+script = ExtResource( 19 )
 
 [node name="Fade" type="ColorRect" parent="Interfaz"]
 visible = false
@@ -298,9 +380,9 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/Fade"]
 autoplay = "fade_out"
 playback_speed = 0.5
-anims/fade_in = SubResource( 3 )
-anims/fade_out = SubResource( 4 )
-anims/fade_out_0_5 = SubResource( 4 )
+anims/fade_in = SubResource( 4 )
+anims/fade_out = SubResource( 5 )
+anims/fade_out_0_5 = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="Interfaz/Fade"]
 
@@ -322,7 +404,18 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/Fade_out_final"]
-anims/fade_out_final = SubResource( 11 )
+anims/fade_out_final = SubResource( 6 )
+
+[node name="Fade_in_cinematica" type="ColorRect" parent="Interfaz"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/Fade_in_cinematica"]
+anims/fade_in_cinematica = SubResource( 7 )
 
 [node name="Animacion_nivel" parent="." instance=ExtResource( 10 )]
 
@@ -341,12 +434,12 @@ texture = ExtResource( 13 )
 [node name="Particles2D" type="Particles2D" parent="Entidad_maligna"]
 amount = 44
 lifetime = 2.0
-process_material = SubResource( 8 )
+process_material = SubResource( 10 )
 texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Entidad_maligna"]
-anims/acercandose_a_casa = SubResource( 5 )
-anims/adentrandose_a_casa = SubResource( 9 )
+anims/acercandose_a_casa = SubResource( 11 )
+anims/adentrandose_a_casa = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="Entidad_maligna"]
 zoom = Vector2( 0.26, 0.26 )
@@ -369,7 +462,7 @@ texture = ExtResource( 15 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entidad_maligna/Pieles/Piel_recolectable/Area2D"]
-shape = SubResource( 10 )
+shape = SubResource( 13 )
 
 [node name="Tween" type="Tween" parent="Entidad_maligna/Pieles/Piel_recolectable"]
 
@@ -388,7 +481,7 @@ texture = ExtResource( 15 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entidad_maligna/Pieles/Piel_recolectable2/Area2D"]
-shape = SubResource( 10 )
+shape = SubResource( 13 )
 
 [node name="Tween" type="Tween" parent="Entidad_maligna/Pieles/Piel_recolectable2"]
 
@@ -407,7 +500,7 @@ texture = ExtResource( 15 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entidad_maligna/Pieles/Piel_recolectable3/Area2D"]
-shape = SubResource( 10 )
+shape = SubResource( 13 )
 
 [node name="Tween" type="Tween" parent="Entidad_maligna/Pieles/Piel_recolectable3"]
 [connection signal="animation_finished" from="Interfaz/Fade/AnimationPlayer" to="Interfaz/Fade" method="_on_AnimationPlayer_animation_finished"]

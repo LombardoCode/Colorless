@@ -27,8 +27,8 @@ func update(delta):
 	owner.motion.x = owner.direccion.x * owner.VELOCIDAD * delta
 	
 	# Morir
-	if Input.is_action_just_pressed("tecla_s"):
-		emit_signal("terminado", "Morir")
+#	if Input.is_action_just_pressed("tecla_s"):
+#		emit_signal("terminado", "Morir")
 	
 	# Salto
 	#if Input.is_action_pressed("tecla_w") and owner.puede_saltar:

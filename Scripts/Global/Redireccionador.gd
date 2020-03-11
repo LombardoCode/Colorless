@@ -10,13 +10,14 @@ var animacion_cambiada = false
 onready var fade_in = $Interfaz/Fade_in/AnimationPlayer
 
 func _ready():
+	# Reproducimos la canción correspondiente al nivel
+	Global.reproducir_musica()
 	# Obtenemos los datos actuales de nuestra partida
 	datos_obtenidos = SavingSystem.leer_datos()
 	
 	randomize()
 	#var tiempo_aleatorio = rand_range(1.5, 3.0)
 	tiempo_aleatorio = rand_range(tiempo_desde, tiempo_hasta)
-	print("Tiempo aleatorio: " + str(tiempo_aleatorio))
 	
 	timer = Timer.new()
 	add_child(timer)

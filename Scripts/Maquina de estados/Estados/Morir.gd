@@ -4,8 +4,20 @@ var valor_aleatorio
 
 var escena_particula_muerte = preload("res://Escenas/Items/Particulas/ParticulaMuerte.tscn")
 var particula_muerte
+var muerte = false
 
 func enter():
+	# Desaparecemos el botón de volver
+	Global.btn_volver.animacion.play("desaparecer")
+	
+	if !muerte:
+		# Incrementamos +1 el número de muertes del personaje
+		var nuevos_datos = SavingSystem.leer_datos()
+		nuevos_datos.muertes += 1
+		SavingSystem.guardar_datos(nuevos_datos)
+		muerte = true
+	
+	
 	# Reproducimos el sonido de muerte provocada por picos
 	owner.get_node("SFX_Muerte_pico").play()
 	

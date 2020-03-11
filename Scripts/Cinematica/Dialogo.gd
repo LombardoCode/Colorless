@@ -7,7 +7,7 @@ var dialogos = [
 	"Parece que ha sido un largo día para nuestro amigo.",
 	"Todo parecía indicar una noche tranquila, hasta que derrepente...",
 	"¡OH NO!\n¡Una entidad maligna quiere dañar a Cuby!",
-	"¡Se acaban de robar las pieles de Cuby!\n¡Seguramente las esconderá!\n¡Hay que avisarle a Cuby!"
+	"¡Se acaba de robar las pieles de Cuby!\n¡Seguramente la entidad maligna las esconderá!\n¡Hay que avisarle a Cuby!"
 ]
 
 

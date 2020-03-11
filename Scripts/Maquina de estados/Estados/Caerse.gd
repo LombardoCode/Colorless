@@ -76,6 +76,17 @@ func update(delta):
 			
 			Global.animacion_nivel.crecer()
 			muerte = true
+			
+			# Desaparecemos el botón de volver
+			Global.btn_volver.animacion.play("desaparecer")
+			
+			
+			# Incrementamos +1 el número de muertes del personaje
+			var nuevos_datos = SavingSystem.leer_datos()
+			nuevos_datos.muertes += 1
+			SavingSystem.guardar_datos(nuevos_datos)
+			
+			
 	
 	# Verificamos constantemente si el jugador ha tocado la piel para poder celebrar y pasar al siguiente mundo
 	if owner.celebrando == true:

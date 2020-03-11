@@ -10,29 +10,42 @@
 [ext_resource path="res://Scripts/Logo_rotatorio.gd" type="Script" id=8]
 [ext_resource path="res://Escenas/Items_frontend/Menu/Menu_piso.tscn" type="PackedScene" id=9]
 
-[sub_resource type="DynamicFont" id=1]
-size = 64
-font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=2]
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
-Button/styles/disabled = SubResource( 2 )
-Button/styles/focus = SubResource( 2 )
-Button/styles/hover = SubResource( 2 )
-Button/styles/normal = SubResource( 2 )
-Button/styles/pressed = SubResource( 2 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 35
 font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "rotacion_leve"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "rotacion_leve"
@@ -105,29 +118,20 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Interfaz/VBoxContainer"]
-margin_top = 167.0
+margin_top = 131.0
 margin_right = 1280.0
-margin_bottom = 281.0
+margin_bottom = 245.0
 texture = ExtResource( 7 )
 stretch_mode = 4
 script = ExtResource( 8 )
 
 [node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/TextureRect"]
 
-[node name="Label" type="Label" parent="Interfaz/VBoxContainer"]
-visible = false
-margin_top = 317.0
-margin_right = 1280.0
-margin_bottom = 397.0
-custom_fonts/font = SubResource( 1 )
-text = "Logo del videojuego"
-align = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Interfaz/VBoxContainer"]
-margin_top = 358.0
+margin_top = 322.0
 margin_right = 1280.0
-margin_bottom = 552.0
-custom_constants/separation = 31
+margin_bottom = 588.0
+custom_constants/separation = 30
 
 [node name="Button" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer" groups=[
 "btn_nuevo_juego",
@@ -135,8 +139,8 @@ custom_constants/separation = 31
 margin_right = 1280.0
 margin_bottom = 44.0
 rect_pivot_offset = Vector2( 512, 22 )
-theme = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Nuevo juego"
 script = ExtResource( 3 )
 escena_target = "res://Escenas/Niveles/Cinematica_inicio.tscn"
@@ -144,7 +148,7 @@ escena_target = "res://Escenas/Niveles/Cinematica_inicio.tscn"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button"]
 autoplay = "rotacion_leve"
 playback_speed = 1.2
-anims/rotacion_leve = SubResource( 5 )
+anims/rotacion_leve = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/VBoxContainer/Button"]
 
@@ -153,12 +157,12 @@ anims/rotacion_leve = SubResource( 5 )
 [node name="Button2" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer" groups=[
 "btn_continuar",
 ]]
-margin_top = 75.0
+margin_top = 74.0
 margin_right = 1280.0
-margin_bottom = 119.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( 512, 22 )
-theme = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Continuar"
 script = ExtResource( 3 )
 escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
@@ -166,19 +170,41 @@ escena_target = "res://Escenas/Niveles/Redireccionador.tscn"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button2"]
 autoplay = "rotacion_leve"
 playback_speed = 1.2
-anims/rotacion_leve = SubResource( 6 )
+anims/rotacion_leve = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/VBoxContainer/Button2"]
 
 [node name="Timer" type="Timer" parent="Interfaz/VBoxContainer/VBoxContainer/Button2"]
 
-[node name="Button3" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer"]
-margin_top = 150.0
+[node name="Button4" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer" groups=[
+"btn_creditos",
+]]
+margin_top = 148.0
 margin_right = 1280.0
-margin_bottom = 194.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 512, 22 )
-theme = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "Créditos"
+script = ExtResource( 3 )
+escena_target = "res://Escenas/Niveles/Creditos.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interfaz/VBoxContainer/VBoxContainer/Button4"]
+autoplay = "rotacion_leve"
+playback_speed = 1.2
+anims/rotacion_leve = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/VBoxContainer/Button4"]
+
+[node name="Timer" type="Timer" parent="Interfaz/VBoxContainer/VBoxContainer/Button4"]
+
+[node name="Button3" type="Button" parent="Interfaz/VBoxContainer/VBoxContainer"]
+margin_top = 222.0
+margin_right = 1280.0
+margin_bottom = 266.0
+rect_pivot_offset = Vector2( 512, 22 )
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Salir"
 script = ExtResource( 4 )
 
@@ -190,11 +216,12 @@ anims/rotacion_leve = SubResource( 7 )
 [node name="Tween" type="Tween" parent="Interfaz/VBoxContainer/VBoxContainer/Button3"]
 
 [node name="Menu_piso" parent="Interfaz" instance=ExtResource( 9 )]
-position = Vector2( 0, 600 )
+position = Vector2( 0, 640 )
 
 [node name="Fade" parent="Interfaz" instance=ExtResource( 5 )]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Interfaz"]
+visible = false
 margin_left = 1.948
 margin_top = -1.94801
 margin_right = 766.948

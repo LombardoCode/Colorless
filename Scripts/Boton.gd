@@ -18,14 +18,13 @@ func _ready():
 			# Habilitamos o deshabilitamos el botón de "Continuar"
 			self.disabled = false if b_nivel_1 == true else true
 	
+	
+	
 	set_process(true)
 
 func _process(_delta):
 	var tamanio_pantalla = OS.get_window_size()
 	self.set_pivot_offset(Vector2(tamanio_pantalla.x / 2, self.rect_size.y / 2))
-	
-	# Verificamos el estado del nivel 1
-	#print("Existe el archivo: " + str(SavingSystem.existe_archivo_partida()))
 	
 
 func _presionado():
@@ -52,6 +51,7 @@ func _presionado():
 	if self.is_in_group("btn_continuar"):
 		if !SavingSystem.existe_archivo_partida():
 			get_tree().quit()
+		
 		
 
 func _hover():

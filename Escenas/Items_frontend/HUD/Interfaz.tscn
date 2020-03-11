@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Interfaz/Interfaz.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=6]
+[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=8]
+[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "aparecer"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "desaparecer"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[node name="Interfaz" type="Node"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Animacion_nivel" parent="CanvasLayer" instance=ExtResource( 4 )]
+layer = 2
+
+[node name="Indicador_nivel" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Fade" parent="CanvasLayer2" instance=ExtResource( 7 )]
+
+[node name="VolverAlMenu" type="TextureButton" parent="CanvasLayer2"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -200.0
+margin_top = 9.53674e-07
+margin_right = 0.00012207
+margin_bottom = 200.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escena_target = "res://Escenas/Interfaz.tscn"
+
+[node name="Timer" type="Timer" parent="CanvasLayer2/VolverAlMenu"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/VolverAlMenu"]
+anims/aparecer = SubResource( 1 )
+anims/desaparecer = SubResource( 2 )

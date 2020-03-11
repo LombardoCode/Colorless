@@ -1,49 +1,17 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=1]
 [ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/Items/Plataformas/Plataforma_V.gd" type="Script" id=3]
+[ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Recursos/Sprites/Plataformas/Plataformas_madera/5x1_Plataforna_madera.png" type="Texture" id=6]
 [ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Escenas/Items/Camara/Camara_siguiendo.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=10]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=11]
+[ext_resource path="res://Escenas/Items_frontend/HUD/Interfaz.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=13]
-[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=16]
-[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Escenas/Cielos/Fondo_cielo_azul.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=19]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100.004, 20.0045 )
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 62.231, 28.594, 0, 0, 0, 0, 632.231, 28.594 )
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "movimiento"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Path2D/PathFollow2D:unit_offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.99, 0.0, 1.0 ]
-}
 
 [node name="Node" type="Node" groups=[
 "arrival",
@@ -72,7 +40,7 @@ z_index = -1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -1, 34, 0, -65536, 34, 0, -65535, 34, 0, -65534, 34, 0, -65533, 34, 0, -65532, 34, 0, -65531, 34, 0, -65530, 34, 0, -65529, 34, 0, -65528, 34, 0, -65527, 34, 0, -65526, 34, 0, -65525, 34, 0, -65524, 34, 0, -65523, 34, 0, -65522, 34, 0, -65521, 34, 0, -65520, 34, 0, -65519, 34, 0, -65518, 34, 0, -65517, 34, 0, -65516, 34, 0, -65515, 34, 0, -65514, 34, 0, -65513, 34, 0, -65512, 34, 0, -65511, 34, 0, -65510, 34, 0, -65509, 34, 0, -65508, 34, 0, -65507, 34, 0, -65506, 34, 0, -65505, 34, 0, -65504, 34, 0, 65535, 34, 0, 32, 34, 0, 131071, 34, 0, 65568, 34, 0, 196607, 34, 0, 131104, 34, 0, 262143, 34, 0, 196640, 34, 0, 327679, 34, 0, 262176, 34, 0, 393215, 34, 0, 327712, 34, 0, 458751, 34, 0, 393248, 34, 0, 524287, 34, 0, 458784, 34, 0, 589823, 34, 0, 524320, 34, 0, 655359, 34, 0, 589856, 34, 0, 720895, 34, 0, 655392, 34, 0, 786431, 34, 0, 720928, 34, 0, 851967, 34, 0, 786464, 34, 0, 917503, 34, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 2, 0, 851994, 0, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 2, 0, 852000, 34, 0, 983039, 34, 0, 917504, 7, 0, 917505, 8, 0, 917506, 8, 0, 917507, 8, 0, 917508, 8, 0, 917509, 9, 0, 917530, 7, 0, 917531, 8, 0, 917532, 8, 0, 917533, 8, 0, 917534, 8, 0, 917535, 9, 0, 917536, 34, 0, 1048575, 34, 0, 983040, 7, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 9, 0, 983066, 7, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 9, 0, 983072, 34, 0, 1114111, 34, 0, 1048576, 7, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 8, 0, 1048580, 8, 0, 1048581, 9, 0, 1048602, 7, 0, 1048603, 8, 0, 1048604, 8, 0, 1048605, 8, 0, 1048606, 8, 0, 1048607, 9, 0, 1048608, 34, 0, 1179647, 34, 0, 1114112, 7, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 8, 0, 1114116, 8, 0, 1114117, 9, 0, 1114138, 7, 0, 1114139, 8, 0, 1114140, 8, 0, 1114141, 8, 0, 1114142, 8, 0, 1114143, 9, 0, 1114144, 34, 0, 1245183, 34, 0, 1179648, 34, 0, 1179649, 34, 0, 1179650, 34, 0, 1179651, 34, 0, 1179652, 34, 0, 1179653, 34, 0, 1179674, 34, 0, 1179675, 34, 0, 1179676, 34, 0, 1179677, 34, 0, 1179678, 34, 0, 1179679, 34, 0, 1179680, 34, 0, 1245189, 34, 0, 1245210, 34, 0, 1310725, 34, 0, 1310746, 34, 0, 1376261, 34, 0, 1376282, 34, 0, 1441797, 34, 0, 1441818, 34, 0, 1507333, 34, 0, 1507354, 34, 0, 1572869, 34, 0, 1572890, 34, 0, 1638405, 34, 0, 1638426, 34, 0, 1703941, 34, 0, 1703962, 34, 0, 1769477, 34, 0, 1769498, 34, 0 )
+tile_data = PoolIntArray( -1, 34, 0, -65536, 34, 0, -65535, 34, 0, -65534, 34, 0, -65533, 34, 0, -65532, 34, 0, -65531, 34, 0, -65530, 34, 0, -65529, 34, 0, -65528, 34, 0, -65527, 34, 0, -65526, 34, 0, -65525, 34, 0, -65524, 34, 0, -65523, 34, 0, -65522, 34, 0, -65521, 34, 0, -65520, 34, 0, -65519, 34, 0, -65518, 34, 0, -65517, 34, 0, -65516, 34, 0, -65515, 34, 0, -65514, 34, 0, -65513, 34, 0, -65512, 34, 0, -65511, 34, 0, -65510, 34, 0, -65509, 34, 0, -65508, 34, 0, -65507, 34, 0, -65506, 34, 0, -65505, 34, 0, -65504, 34, 0, 65535, 34, 0, 32, 34, 0, 131071, 34, 0, 65568, 34, 0, 196607, 34, 0, 131104, 34, 0, 262143, 34, 0, 196640, 34, 0, 327679, 34, 0, 262176, 34, 0, 393215, 34, 0, 327712, 34, 0, 458751, 34, 0, 393248, 34, 0, 524287, 34, 0, 458784, 34, 0, 589823, 34, 0, 524320, 34, 0, 655359, 34, 0, 589856, 34, 0, 720895, 34, 0, 655392, 34, 0, 786431, 34, 0, 720928, 34, 0, 851967, 34, 0, 786464, 34, 0, 917503, 34, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 2, 0, 851978, 6, 0, 851979, 6, 0, 851980, 6, 0, 851987, 6, 0, 851988, 6, 0, 851989, 6, 0, 851994, 0, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 2, 0, 852000, 34, 0, 983039, 34, 0, 917504, 7, 0, 917505, 8, 0, 917506, 8, 0, 917507, 8, 0, 917508, 8, 0, 917509, 9, 0, 917514, 6, 0, 917515, 6, 0, 917516, 6, 0, 917523, 6, 0, 917524, 6, 0, 917525, 6, 0, 917530, 7, 0, 917531, 8, 0, 917532, 8, 0, 917533, 8, 0, 917534, 8, 0, 917535, 9, 0, 917536, 34, 0, 1048575, 34, 0, 983040, 7, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 9, 0, 983050, 6, 0, 983051, 6, 0, 983052, 6, 0, 983059, 6, 0, 983060, 6, 0, 983061, 6, 0, 983066, 7, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 9, 0, 983072, 34, 0, 1114111, 34, 0, 1048576, 7, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 8, 0, 1048580, 8, 0, 1048581, 9, 0, 1048586, 6, 0, 1048587, 6, 0, 1048588, 6, 0, 1048595, 6, 0, 1048596, 6, 0, 1048597, 6, 0, 1048602, 7, 0, 1048603, 8, 0, 1048604, 8, 0, 1048605, 8, 0, 1048606, 8, 0, 1048607, 9, 0, 1048608, 34, 0, 1179647, 34, 0, 1114112, 7, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 8, 0, 1114116, 8, 0, 1114117, 9, 0, 1114122, 6, 0, 1114123, 6, 0, 1114124, 6, 0, 1114131, 6, 0, 1114132, 6, 0, 1114133, 6, 0, 1114138, 7, 0, 1114139, 8, 0, 1114140, 8, 0, 1114141, 8, 0, 1114142, 8, 0, 1114143, 9, 0, 1114144, 34, 0, 1245183, 34, 0, 1179648, 34, 0, 1179649, 34, 0, 1179650, 34, 0, 1179651, 34, 0, 1179652, 34, 0, 1179653, 34, 0, 1179674, 34, 0, 1179675, 34, 0, 1179676, 34, 0, 1179677, 34, 0, 1179678, 34, 0, 1179679, 34, 0, 1179680, 34, 0, 1245189, 34, 0, 1245210, 34, 0, 1310725, 34, 0, 1310746, 34, 0, 1376261, 34, 0, 1376282, 34, 0, 1441797, 34, 0, 1441818, 34, 0, 1507333, 34, 0, 1507354, 34, 0, 1572869, 34, 0, 1572890, 34, 0, 1638405, 34, 0, 1638426, 34, 0, 1703941, 34, 0, 1703962, 34, 0, 1769477, 34, 0, 1769498, 34, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -97,73 +65,14 @@ position = Vector2( 1160, 480 )
 [node name="Meta" parent="Meta_portal" index="1"]
 escena_target = "res://Escenas/Niveles/Nivel8.tscn"
 
-[node name="Plataformas" type="Node" parent="."]
+[node name="Salto_extra" type="Node" parent="."]
 
-[node name="Plataforma" type="Node2D" parent="Plataformas"]
-position = Vector2( 297.769, 551.406 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Plataforma" type="KinematicBody2D" parent="Plataformas/Plataforma"]
-position = Vector2( 626.58, 28.594 )
-motion/sync_to_physics = true
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/Plataforma/Plataforma"]
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/Plataforma/Plataforma"]
-shape = SubResource( 1 )
-
-[node name="Path2D" type="Path2D" parent="Plataformas/Plataforma"]
-curve = SubResource( 2 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Plataformas/Plataforma/Path2D"]
-position = Vector2( 626.58, 28.594 )
-offset = 563.688
-rotate = false
-loop = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Plataformas/Plataforma/Path2D/PathFollow2D"]
-remote_path = NodePath("../../../Plataforma")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas/Plataforma"]
-root_node = NodePath("../Plataforma")
-autoplay = "movimiento"
-playback_process_mode = 0
-anims/movimiento = SubResource( 3 )
+[node name="Salto_extra" parent="Salto_extra" instance=ExtResource( 3 )]
+position = Vector2( 640, 400 )
 
 [node name="Fondo_cielo_azul" parent="." instance=ExtResource( 18 )]
 
-[node name="Interfaz" type="CanvasLayer" parent="."]
-
-[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -88.0
-margin_top = 16.0
-margin_bottom = 200.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 9 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-escena_target = "res://Escenas/Interfaz.tscn"
-
-[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
-
-[node name="Fade" parent="Interfaz" instance=ExtResource( 14 )]
-
-[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 19 )]
-
-[node name="Animacion_nivel" parent="." instance=ExtResource( 17 )]
+[node name="Interfaz" parent="." instance=ExtResource( 9 )]
+nivel = "Nivel 07 / 30"
 
 [editable path="Meta_portal"]

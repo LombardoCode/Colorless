@@ -42,7 +42,8 @@ var datos_a_guardar = {
 		piel1 = false,
 		piel2 = false,
 		piel3 = false
-	}
+	},
+	muertes = 0
 }
 
 
@@ -98,7 +99,6 @@ func existe_archivo_partida():
 		return false
 
 func eliminar_partida():
-	print("Eliminar")
 	var directorio = Directory.new()
 	if existe_directorio() and existe_archivo_partida():
 		directorio.remove("user://save_folder/save_data.txt")

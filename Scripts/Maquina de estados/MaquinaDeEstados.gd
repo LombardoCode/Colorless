@@ -20,7 +20,7 @@ func _input(event):
 
 func cambiar_estado(nuevo_estado):
 	label.text = nuevo_estado
-	print(nuevo_estado)
+	#print(nuevo_estado)
 	if !activo:
 		return
 	estado_actual = mapa_de_estados[nuevo_estado]

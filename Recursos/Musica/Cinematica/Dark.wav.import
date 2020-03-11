@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dark.wav-b2717c359398cd3f887ad84e4523222d.sample"
+
+[deps]
+
+source_file="res://Recursos/Musica/Cinematica/Dark.wav"
+dest_files=[ "res://.import/Dark.wav-b2717c359398cd3f887ad84e4523222d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

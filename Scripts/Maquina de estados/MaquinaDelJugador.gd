@@ -9,8 +9,8 @@ func _ready():
 		"Caerse" : $Caerse,
 		"Salto_doble" : $Salto_doble,
 		"Morir" : $Morir,
-		"Celebrando": $Celebrando
-		
+		"Celebrando" : $Celebrando,
+		"Caminata_final" : $Caminata_final
 	}
 	activar_estado(true)
 	cambiar_estado("IDLE")

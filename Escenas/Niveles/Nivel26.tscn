@@ -1,17 +1,12 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Recursos/Tilesets/ts_cueva.tres" type="TileSet" id=1]
 [ext_resource path="res://Recursos/Tilesets/ts_dia.tres" type="TileSet" id=2]
-[ext_resource path="res://Escenas/Items/Animaciones/Animacion_nivel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Items_frontend/HUD/Interfaz.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Global/AdministradorDelNivel.gd" type="Script" id=4]
-[ext_resource path="res://Escenas/Items/HUD/Indicador_nivel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Escenas/Items_frontend/Evitable/Pico_templo_2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Interfaz/VolverAlMenu.gd" type="Script" id=7]
 [ext_resource path="res://Recursos/Tilesets/ts_castle.tres" type="TileSet" id=8]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_presionada.png" type="Texture" id=9]
 [ext_resource path="res://Escenas/Items_frontend/Evitable/Pico_templo_2_trampa.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso.png" type="Texture" id=11]
-[ext_resource path="res://Recursos/Sprites/Interfaz/BotonMenu/Flecha_retroceso_hover.png" type="Texture" id=12]
 [ext_resource path="res://Recursos/Musica/Tutorial/Tutorial.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Escenas/Salto_extra.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Escenas/Personaje.tscn" type="PackedScene" id=15]
@@ -19,7 +14,6 @@
 [ext_resource path="res://Escenas/Items_backend/Musica.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Escenas/Items/Meta/Meta_portal.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Escenas/Cielos/Fondo_cielo_morado.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Escenas/Fade.tscn" type="PackedScene" id=20]
 
 [node name="Node" type="Node" groups=[
 "madness",
@@ -82,31 +76,8 @@ escena_target = "res://Escenas/Niveles/Nivel27.tscn"
 
 [node name="Fondo_cielo_azul2" parent="." instance=ExtResource( 19 )]
 
-[node name="Interfaz" type="CanvasLayer" parent="."]
-
-[node name="VolverAlMenu" type="TextureButton" parent="Interfaz"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -88.0
-margin_top = 16.0
-margin_bottom = 200.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 12 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-escena_target = "res://Escenas/Interfaz.tscn"
-
-[node name="Timer" type="Timer" parent="Interfaz/VolverAlMenu"]
-
-[node name="Fade" parent="Interfaz" instance=ExtResource( 20 )]
-
-[node name="Indicador_nivel" parent="Interfaz" instance=ExtResource( 5 )]
-
-[node name="Animacion_nivel" parent="." instance=ExtResource( 3 )]
+[node name="Interfaz" parent="." instance=ExtResource( 3 )]
+nivel = "Nivel 26 / 30"
 
 [node name="Picos_movibles" type="Node" parent="."]
 
@@ -177,15 +148,7 @@ position = Vector2( 0, -10 )
 position = Vector2( 0, -10 )
 
 [node name="Pico4" parent="Picos" instance=ExtResource( 6 )]
-position = Vector2( 880, 460 )
-
-[node name="Pico5" parent="Picos" instance=ExtResource( 6 )]
-position = Vector2( 840, 460 )
-
-[node name="Pico7" parent="Picos" instance=ExtResource( 6 )]
-position = Vector2( 740, 380 )
-rotation = 3.14159
-scale = Vector2( 3, 3 )
+position = Vector2( 800, 460 )
 
 [node name="Pico8" parent="Picos" instance=ExtResource( 6 )]
 position = Vector2( 620, 440 )
@@ -276,9 +239,6 @@ position = Vector2( 1060, 400 )
 
 [node name="Salto_extra3" parent="Saltos_extra" instance=ExtResource( 14 )]
 position = Vector2( 200, 360 )
-
-[node name="Salto_extra4" parent="Saltos_extra" instance=ExtResource( 14 )]
-position = Vector2( 200, 180 )
 
 [node name="Salto_extra5" parent="Saltos_extra" instance=ExtResource( 14 )]
 position = Vector2( 340, 180 )
