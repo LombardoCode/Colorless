@@ -8,7 +8,8 @@ func _ready():
 
 func _process(_delta):
 	var tamanio_pantalla = OS.get_window_size()
-	self.set_pivot_offset(Vector2(tamanio_pantalla.x / 2, self.rect_size.y / 2))
+	var tamanio_obj = self.rect_size
+	self.set_pivot_offset(Vector2(tamanio_obj.x / 2, tamanio_obj.y / 2))
 
 func _presionado():
 	get_tree().quit()
